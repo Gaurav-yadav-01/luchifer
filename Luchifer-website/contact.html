@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Luchifer</title>
+<meta name="description" content="Luchifer — Custom Clothing & Uniforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<div class="site-loader" id="siteLoader" aria-hidden="true">
+  <div class="site-loader-inner">
+    <div class="site-loader-logo">LUCH<span>I</span>FER</div>
+    <div class="site-loader-line"></div>
+    <div class="site-loader-text">Custom Clothing &amp; Uniforms</div>
+  </div>
+</div>
+<header class="site-header" id="siteHeader">
+  <div class="site-nav">
+    <a href="index.html" class="site-logo">LUCH<span>I</span>FER</a>
+    <nav class="site-links" id="siteLinks" aria-label="Main navigation">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="products.html" data-page="products.html">Products</a>
+      <a href="quality.html" data-page="quality.html">Quality</a>
+      <a href="industries.html" data-page="industries.html">Industries</a>
+      <a href="about.html" data-page="about.html">About</a>
+      <a href="career.html" data-page="career.html">Vision</a>
+      <a href="contact.html" class="site-cta">Send Requirement</a>
+    </nav>
+    <button class="site-menu" id="siteMenu" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="page-hero">
+<div class="container">
+<div class="page-hero-content reveal">
+<div class="hero-line">Get In Touch</div>
+<h1>Tell us what you <em>need.</em></h1>
+<p>Send your clothing requirement and start a direct conversation with Luchifer.</p>
+</div>
+</div>
+</section>
+
+<section class="section contact">
+<div class="container contact-layout">
+<div class="contact-info reveal">
+<div class="eyebrow">Get In Touch</div>
+<h2>Tell us what<br>you need.</h2>
+<p>Share your requirement and our team can discuss the product, quantity, fabric, branding and production details with you.</p>
+<div class="contact-details">
+<div class="contact-detail"><small>WhatsApp</small><span>+91 7235851276</span></div>
+<div class="contact-detail"><small>Email</small><span>Gauravyadavindia01@gmail.com</span></div>
+<div class="contact-detail"><small>Business</small><span>Custom Clothing & Uniform Manufacturing</span></div>
+</div>
+</div>
+<div class="reveal">
+<div id="requirementFormArea">
+<iframe name="formSubmitTarget" id="formSubmitTarget" title="Form submission" style="display:none" aria-hidden="true"></iframe>
+<form class="form" id="requirementForm" action="https://formsubmit.co/gauravyadavindia01@gmail.com" method="POST" enctype="multipart/form-data" target="formSubmitTarget">
+<input type="hidden" name="_subject" value="New Luchifer Requirement">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_url" value="Luchifer Requirement Form">
+<input type="hidden" name="_replyto" value="">
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+<div class="form-row">
+<div class="field"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Full name" required></div>
+<div class="field"><label for="phone">WhatsApp Number</label><input type="tel" id="phone" name="phone" placeholder="+91" required></div>
+</div>
+<div class="form-row">
+<div class="field"><label for="email">Email Address <span class="optional-label">(optional)</span></label><input type="email" id="email" name="email" placeholder="you@company.com" required></div>
+<div class="field"><label for="company">Company / Organisation</label><input type="text" id="company" name="company" placeholder="Company name" required></div>
+<div class="field"><label for="quantity">Quantity</label><input type="text" id="quantity" name="quantity" placeholder="e.g. 100 pieces" required></div>
+</div>
+<div class="form-row">
+<div class="field"><label for="product">Product Type</label><select id="product" name="product" required><option value="">Select product</option><option>Corporate Uniform</option><option>Restaurant Uniform</option><option>Chef Uniform</option><option>Hotel Uniform</option><option>Industrial Workwear</option><option>Delivery Staff Wear</option><option>T-Shirts / Polo</option><option>Other</option></select></div>
+<div class="field"><label for="date">Required Date</label><input type="date" id="date" name="required_date" required></div>
+</div>
+<div class="field"><label for="details">Your Requirement</label><textarea id="details" name="requirement" placeholder="Tell us about fabric, colour, logo, sizes, quantity or anything else..." required></textarea></div>
+<div class="field"><label for="file">Reference / Logo</label><div class="file-input"><input type="file" id="file" name="attachment" accept="image/*,.pdf"></div></div>
+<div class="form-note"><strong>Reference / Logo:</strong> Optional. If you attach a JPG, PNG or PDF, it will be sent with your requirement to the Luchifer email inbox. Your details and attachment will be sent to the Luchifer team by email.</div>
+<div class="form-message" id="formMessage"></div>
+<button type="submit" class="btn btn-primary" style="width:max-content">Send Requirement</button>
+</form>
+</div>
+
+<div class="requirement-success" id="requirementSuccess" aria-live="polite">
+  <div class="success-icon">✓</div>
+  <div class="eyebrow">Requirement Shared</div>
+  <h2>Details shared <em>successfully.</em></h2>
+  <p>Your requirement and any attached reference file have been sent to the Luchifer team by email.</p>
+  <p class="success-small">Our team can review your requirement and contact you using the details you provided.</p>
+  <div class="page-actions">
+    <a href="index.html" class="btn btn-primary">Back to Home</a>
+    <button type="button" class="btn btn-outline" id="sendAnother">Send Another Requirement</button>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section class="section"><div class="container split"><div class="reveal"><div class="eyebrow">Need Something Specific?</div><h2 class="section-title">Start with the requirement.</h2></div><div class="reveal"><p class="section-description">You can mention your fabric preference, colour, sizes, branding, quantity and delivery timeline. We can discuss the details from there.</p><div class="page-actions"><a href="products.html" class="btn btn-outline">View Products</a><a href="quality.html" class="btn btn-outline">View Quality</a></div></div></div></section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-topline">
+      <span>LUCHIFER / CUSTOM CLOTHING &amp; UNIFORMS</span>
+      <span>Made around your requirement.</span>
+    </div>
+    <div class="site-footer-grid site-footer-grid-pro">
+      <div class="site-footer-brand">
+        <div class="site-footer-logo">LUCH<span>I</span>FER</div>
+        <p class="site-footer-description">Professional uniforms, workwear and custom clothing developed around your business — from fabric and fit to branding, production and delivery.</p>
+        <a class="site-footer-cta" href="contact.html">Send Your Requirement <span>→</span></a>
+      </div>
+      <div>
+        <div class="site-footer-heading">Explore</div>
+        <div class="site-footer-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="quality.html">Quality</a>
+          <a href="industries.html">Industries</a>
+          <a href="about.html">About</a>
+          <a href="career.html">Vision</a>
+        </div>
+      </div>
+      <div>
+        <div class="site-footer-heading">Products</div>
+        <div class="site-footer-links">
+          <a href="corporate-uniform.html">Corporate Uniform</a>
+          <a href="cafe-restaurant.html">Café &amp; Restaurant</a>
+          <a href="chef-uniform.html">Chef Uniform</a>
+          <a href="hotel-uniform.html">Hotel Uniform</a>
+          <a href="industrial-workwear.html">Industrial Workwear</a>
+          <a href="delivery-staff-wear.html">Delivery Staff Wear</a>
+        </div>
+      </div>
+      <div>
+        <div class="site-footer-heading">Resources &amp; Contact</div>
+        <div class="site-footer-links">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="faq.html">FAQ</a>
+          <a href="policies.html">Policies</a>
+          <a href="care-size.html">Care &amp; Size Guide</a>
+        </div>
+        <div class="site-footer-contact-pro">
+          <a href="https://wa.me/917235851276" target="_blank" rel="noopener"><small>WhatsApp</small><span>+91 72358 51276</span></a>
+          <a href="mailto:gauravyadavindia01@gmail.com"><small>Email</small><span>gauravyadavindia01@gmail.com</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer-bottom site-footer-bottom-pro">
+      <span>© 2026 Luchifer. All rights reserved.</span>
+      <span>Custom Clothing · Uniforms · Workwear</span>
+      <span>Pan India Requirement Support</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

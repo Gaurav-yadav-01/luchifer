@@ -1,0 +1,28 @@
+Luchifer Website — Research Upgrade Notes
+
+This version keeps the existing Luchifer visual direction and adds the information architecture observed across the reference websites supplied by the owner.
+
+Research themes incorporated:
+- Fortera Apparel: clear custom-order workflow, artwork/mockup approval, product/industry organization, FAQs, sample/production explanation, and detailed product information.
+- Vihaan International: manufacturing capabilities, industry-specific divisions, quality-control stages, export/delivery information, quote-oriented calls to action, and structured resource/footer navigation.
+- Mafatlal Uniforms: strong category segmentation, institutional/industry collections, product catalogue structure, brand/trust presentation, and clear company/resource navigation.
+- BR MODE: B2B-first positioning, industry/category pathways, bulk enquiry journeys, manufacturing/OEM framing, catalogue/resource access, and capability snapshots.
+- Velocity Wear: quote form structure, MOQ/quantity discussion, material/decoration explanations, industry pages, FAQ/answer library, sample-before-bulk concept, reorder considerations, and delivery/production steps.
+
+Luchifer-specific implementation:
+- Home page visual design remains the existing Luchifer design.
+- Existing product categories and unique-image rule are preserved; no image source was intentionally duplicated.
+- Product pages now contain more B2B detail: product scope, fabric/fit, branding, sizing, department/use considerations, quotation logic, and approval before production.
+- Added How It Works page.
+- Added FAQ page.
+- Added Policies & Order Terms page. It avoids inventing fixed commercial terms; order-specific terms are confirmed in the quotation/order confirmation.
+- Added Care & Size Guide.
+- Products page now links to the new information resources.
+- Footer now includes a Resources area.
+- All local page references were validated; no missing local links were found.
+- JavaScript syntax was validated with Node.
+- Image check: 38 image placements and 38 unique image sources in the HTML set.
+
+Important:
+- Reference-site wording was not copied verbatim. The Luchifer copy is written specifically for Luchifer.
+- Where the reference sites state their own prices, MOQs, certifications, production capacities, or policies, those figures were not transferred to Luchifer unless already part of Luchifer's own site information.

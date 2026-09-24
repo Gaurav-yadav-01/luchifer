@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chef Uniform — Luchifer</title>
+<meta name="description" content="Professional chef clothing developed around movement, comfort, kitchen use and the visual identity of your food business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#090909;--ink:#11110f;--panel:#151513;--cream:#f3efe6;--muted:#918e86;--gold:#c6a66d;--line:rgba(243,239,230,.13);--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;--max:1600px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--cream);font-family:var(--sans);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+.header{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(9,9,9,.70);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:.3s}
+.header.scrolled{background:rgba(9,9,9,.96);border-color:var(--line)}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;position:relative}
+.logo{font-family:var(--serif);font-size:27px;letter-spacing:.09em}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:27px;list-style:none;align-items:center}
+.nav-links a{font-size:12px;color:#bdb9b0;transition:.2s}
+.nav-links a:hover{color:#fff}
+.header-button{border:1px solid rgba(198,166,109,.65);padding:12px 18px;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
+.hero{min-height:92vh;padding-top:82px;display:flex;align-items:flex-end;position:relative;background-position:center;background-size:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.57) 55%,rgba(0,0,0,.15)),linear-gradient(0deg,rgba(0,0,0,.98),transparent 60%)}
+.hero-inner{position:relative;z-index:2;padding:120px 0 90px;max-width:1000px}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.23em;font-weight:700;color:#d4b67b;margin-bottom:19px}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(56px,8vw,112px);line-height:.92;letter-spacing:-.055em;max-width:1050px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{max-width:700px;color:#c7c3bb;font-size:17px;line-height:1.8;margin-top:27px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:53px;padding:0 24px;border:1px solid rgba(243,239,230,.28);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700;transition:.25s}
+.btn-primary{background:var(--cream);color:#0a0a09;border-color:var(--cream)}
+.btn-primary:hover{background:var(--gold);border-color:var(--gold)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.wa-note{margin-top:15px;color:#8c8982;font-size:11px}
+.quickbar{background:#121210;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.quick{padding:23px 24px;border-right:1px solid var(--line)}
+.quick:last-child{border-right:0}
+.quick b{display:block;font-size:12px;margin-bottom:4px}
+.quick span{font-size:11px;color:#8e8b83}
+.section{padding:115px 0}
+.section.alt{background:var(--panel)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:75px;align-items:center}
+.photo{overflow:hidden;background:#111;border:1px solid rgba(243,239,230,.08);min-height:610px}
+.photo img{height:100%;min-height:610px;object-fit:cover;transition:transform .8s}
+.photo:hover img{transform:scale(1.035)}
+.section-title{font-family:var(--serif);font-size:clamp(43px,5.3vw,76px);font-weight:500;line-height:1.01;letter-spacing:-.045em}
+.section-title em{font-style:normal;color:var(--gold)}
+.copy{color:var(--muted);font-size:15px;line-height:1.9;margin-top:22px;max-width:660px}
+.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:42px}
+.detail-card{background:var(--panel);padding:31px 28px;min-height:170px}
+.detail-card span{color:var(--gold);font-size:10px;letter-spacing:.15em}
+.detail-card h3{font-family:var(--serif);font-size:26px;font-weight:500;margin-top:17px}
+.detail-card p{color:var(--muted);font-size:13px;line-height:1.7;margin-top:7px}
+.look{min-height:690px;position:relative;background-position:center;background-size:cover;display:flex;align-items:flex-end}
+.look:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.95),rgba(0,0,0,.05) 72%)}
+.look-content{position:relative;z-index:2;padding:75px 0;max-width:850px}
+.look h2{font-family:var(--serif);font-size:clamp(48px,6.5vw,88px);font-weight:500;line-height:.98;letter-spacing:-.04em}
+.look p{color:#c2beb6;max-width:720px;margin-top:20px;font-size:15px;line-height:1.8}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:45px}
+.feature{background:var(--panel);padding:34px 30px;min-height:230px}
+.feature-index{font-size:10px;color:var(--gold);letter-spacing:.14em}
+.feature h3{font-family:var(--serif);font-size:27px;font-weight:500;margin-top:28px}
+.feature p{color:var(--muted);font-size:13px;line-height:1.75;margin-top:9px}
+.process{margin-top:45px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.step{background:#fff;color:#111;padding:30px;min-height:205px}
+.step small{color:#92753e;font-size:10px;letter-spacing:.16em;font-weight:700}
+.step h3{font-family:var(--serif);font-size:25px;font-weight:500;margin:18px 0 8px}
+.step p{color:#6e6a63;font-size:13px;line-height:1.7}
+.cta{padding:95px 0;background:#10100f;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cta-inner{display:flex;justify-content:space-between;align-items:center;gap:50px}
+.cta h2{font-family:var(--serif);font-size:clamp(44px,5.2vw,70px);font-weight:500;line-height:1}
+.cta p{color:var(--muted);max-width:620px;margin-top:15px;font-size:14px}
+.footer{padding:70px 0 24px;background:#0b0b0b;border-top:1px solid var(--line)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.25fr;gap:45px;padding-bottom:55px}
+.footer-logo{font-family:var(--serif);font-size:34px;letter-spacing:.08em}
+.footer-logo span{color:var(--gold)}
+.footer-desc{color:var(--muted);font-size:13px;line-height:1.8;max-width:400px;margin-top:13px}
+.footer h4{font-size:10px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:17px}
+.footer-links a{display:block;color:#aaa;font-size:13px;margin:9px 0;transition:.2s}
+.footer-links a:hover{color:#fff;transform:translateX(3px)}
+.contact-line{display:flex;gap:10px;color:#aaa;font-size:13px;margin:10px 0}
+.contact-line b{color:var(--gold);font-weight:500}
+.footer-social{display:flex;gap:9px;margin-top:18px}
+.footer-social a{display:inline-flex;width:36px;height:36px;border:1px solid var(--line);align-items:center;justify-content:center;color:#aaa}
+.footer-social a:hover{border-color:var(--gold);color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--line);padding-top:22px;color:#69665f;font-size:11px;display:flex;justify-content:space-between;gap:20px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:1000px){
+.nav-links,.header-button{display:none}.menu-btn{display:block}.nav.open .nav-links{display:flex;position:absolute;top:82px;left:0;right:0;background:#090909;padding:24px;flex-direction:column;align-items:flex-start;gap:18px;border-top:1px solid var(--line)}.two-col{grid-template-columns:1fr;gap:45px}.quick-grid{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.footer-top{grid-template-columns:1fr 1fr}.photo,.photo img{min-height:500px}
+}
+@media(max-width:600px){
+.container{width:calc(100% - 30px)}.hero{min-height:720px}.hero-inner{padding:95px 0 60px}.hero h1{font-size:55px}.hero p{font-size:15px}.quick-grid{grid-template-columns:1fr 1fr}.quick{padding:18px 14px}.section{padding:80px 0}.photo,.photo img{min-height:410px}.detail-grid{grid-template-columns:1fr}.look{min-height:500px}.look-content{padding:60px 0}.feature-grid,.process,.footer-top{grid-template-columns:1fr}.cta-inner{display:flex;flex-direction:column;align-items:flex-start}.buttons .btn,.cta .btn{width:100%}.footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}.footer-logo{font-size:30px}
+}
+</style>
+<link rel="stylesheet" href="shared.css">
+</head>
+<body data-product="Chef Uniform">
+<div class="site-loader" id="siteLoader" aria-hidden="true">
+  <div class="site-loader-inner">
+    <div class="site-loader-logo">LUCH<span>I</span>FER</div>
+    <div class="site-loader-line"></div>
+    <div class="site-loader-text">Custom Clothing &amp; Uniforms</div>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="site-nav">
+    <a href="index.html" class="site-logo">LUCH<span>I</span>FER</a>
+    <nav class="site-links" id="siteLinks" aria-label="Main navigation">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="products.html" data-page="products.html">Products</a>
+      <a href="quality.html" data-page="quality.html">Quality</a>
+      <a href="industries.html" data-page="industries.html">Industries</a>
+      <a href="about.html" data-page="about.html">About</a>
+      <a href="career.html" data-page="career.html">Vision</a>
+      <a href="#" data-whatsapp-product class="site-cta">Send Requirement</a>
+    </nav>
+    <button class="site-menu" id="siteMenu" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="background-image:url('https://images.pexels.com/photos/11322617/pexels-photo-11322617.jpeg?auto=compress&cs=tinysrgb&w=2200')">
+<div class="container"><div class="hero-inner reveal">
+<div class="eyebrow">03 — KITCHEN</div>
+<h1>Chef Uniform<br><em>built for the kitchen.</em></h1>
+<p>Professional chef clothing developed around movement, comfort, kitchen use and the visual identity of your food business.</p>
+<div class="buttons">
+<a href="#" data-whatsapp-product class="btn btn-primary">Send Your Requirement</a>
+<a href="products.html" class="btn btn-outline">View All Products</a>
+</div>
+<div class="wa-note">Discuss fabric, fit, colour, branding, quantity and pricing directly on WhatsApp.</div>
+</div></div>
+</section>
+
+<div class="quickbar">
+<div class="container quick-grid">
+<div class="quick"><b>Custom Fit</b><span>Developed around your requirement</span></div>
+<div class="quick"><b>Branding</b><span>Logo, embroidery & placement</span></div>
+<div class="quick"><b>Quantity</b><span>Planned around your order</span></div>
+<div class="quick"><b>Direct Contact</b><span>Talk to the Luchifer team</span></div>
+</div>
+</div>
+
+<section class="section">
+<div class="container two-col">
+<div class="photo reveal"><img src="https://images.pexels.com/photos/6939763/pexels-photo-6939763.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Chef Uniform quality and manufacturing" loading="lazy"></div>
+<div class="reveal">
+<div class="eyebrow">01 — PRODUCT DEVELOPMENT</div>
+<h2 class="section-title">Comfort where the work happens.</h2>
+<p class="copy">Kitchen teams need clothing that works through movement and long working hours. Chef coats, trousers, aprons and supporting pieces can be developed around fabric, fit, colour, ventilation and branding requirements.</p>
+<div class="detail-grid"><div class="detail-card reveal"><span>01</span><h3>Chef Coats</h3><p>Classic and contemporary coat options developed around fit and kitchen use.</p></div>
+<div class="detail-card reveal"><span>02</span><h3>Kitchen Trousers</h3><p>Practical bottoms designed for movement and everyday wear.</p></div>
+<div class="detail-card reveal"><span>03</span><h3>Aprons</h3><p>Functional layers with colour and branding options.</p></div>
+<div class="detail-card reveal"><span>04</span><h3>Brand Details</h3><p>Embroidery, labels, buttons and other details can be coordinated.</p></div></div>
+</div>
+</div>
+</section>
+
+
+<section class="material-section">
+<div class="container">
+<div class="material-intro reveal"><div><div class="material-kicker">Fabric &amp; Material</div><h2 class="material-title">Chef Uniform Fabric & Material.</h2></div><p class="material-note">Kitchen clothing is selected around heat, movement, breathability, washing and the working environment. Fabric choice is finalised around your actual requirement, climate, care cycle, fit and use case.</p></div>
+<div class="material-grid"><div class="material-card"><small>01 / CHEF COAT</small><h3>100% Cotton Options</h3><p>Breathable natural-fibre option for hot kitchen environments where comfort matters.</p><div class="material-meta"><span class="material-tag">Chef Coat</span><span class="material-tag">Breathable</span></div></div><div class="material-card"><small>02 / DURABILITY</small><h3>Poly-Cotton Twill</h3><p>A practical blend for durability, shape retention and easier day-to-day care.</p><div class="material-meta"><span class="material-tag">Chef Pants</span><span class="material-tag">Kitchen Wear</span></div></div><div class="material-card"><small>03 / FINISH</small><h3>Functional Construction</h3><p>Double-breasted fronts, practical cuffs, pocket placement and embroidery can be customised.</p><div class="material-meta"><span class="material-tag">Embroidery</span><span class="material-tag">Name</span></div></div></div>
+<div class="item-strip"><span class="material-kicker" style="width:100%;margin:18px 0 0">Typical items</span><span class="item-pill">Chef Coat</span><span class="item-pill">Chef Trousers</span><span class="item-pill">Bib Apron</span><span class="item-pill">Chef Cap</span><span class="item-pill">Kitchen Apron</span></div>
+</div>
+</section>
+
+<section class="look" style="background-image:url('https://images.pexels.com/photos/4590938/pexels-photo-4590938.jpeg?auto=compress&cs=tinysrgb&w=2200')">
+<div class="container"><div class="look-content reveal">
+<div class="eyebrow">02 — THE LOOK</div>
+<h2>A professional kitchen identity.</h2>
+<p>Keep the kitchen team visually consistent with coordinated colours, coat details, apron styling and subtle or prominent branding depending on your concept.</p>
+</div></div>
+</section>
+
+<section class="section alt">
+<div class="container">
+<div class="reveal">
+<div class="eyebrow">03 — WHAT WE CAN DO</div>
+<h2 class="section-title">Built around the details that matter.</h2>
+<p class="copy">Every requirement can be discussed before production — from fabric and fit to colour, branding, quantity and product details.</p>
+</div>
+<div class="feature-grid"><article class="feature reveal"><div class="feature-index">01</div><h3>Kitchen Comfort</h3><p>Fabric and construction can be selected around heat, movement and shift duration.</p></article>
+<article class="feature reveal"><div class="feature-index">02</div><h3>Fit &amp; Movement</h3><p>Develop the cut around practical movement rather than appearance alone.</p></article>
+<article class="feature reveal"><div class="feature-index">03</div><h3>Branding</h3><p>Create a consistent visual identity across chefs, kitchen staff and service.</p></article></div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="reveal">
+<div class="eyebrow">04 — WORKFLOW</div>
+<h2 class="section-title">From requirement to finished clothing.</h2>
+<p class="copy">A straightforward process keeps the product aligned with what you actually need.</p>
+</div>
+<div class="process">
+<div class="step"><small>01 / REQUIREMENT</small><h3>Understand</h3><p>Discuss product, quantity, fabric, colour, branding, sizes and use.</p></div>
+<div class="step"><small>02 / SAMPLE</small><h3>Develop</h3><p>Work through fit, look, construction and product details.</p></div>
+<div class="step"><small>03 / PRODUCTION</small><h3>Make</h3><p>Move approved requirements into production with consistent finishing.</p></div>
+<div class="step"><small>04 / DELIVERY</small><h3>Complete</h3><p>Finished clothing is checked and prepared for delivery.</p></div>
+</div>
+</div>
+</section>
+
+<section class="info-band dark">
+<div class="container">
+<div class="info-head reveal"><div><div class="eyebrow">06 — B2B PRODUCT DETAILS</div><h2>Chef Uniforms<br><em>specified properly.</em></h2></div><p>Chef clothing is developed around movement, heat, comfort, repeated washing and a professional kitchen appearance.</p></div>
+<div class="info-grid">
+<div class="info-card reveal"><small>01 / CHEF COAT</small><h3>Chef Coat</h3><p>Single or double-breasted styles, sleeve options and practical closures can be discussed.</p></div>
+<div class="info-card reveal"><small>02 / TROUSERS</small><h3>Trousers</h3><p>Comfort-focused kitchen trousers with the required fit and movement.</p></div>
+<div class="info-card reveal"><small>03 / APRONS & CAPS</small><h3>Aprons & Caps</h3><p>Bib aprons and chef caps can be coordinated with the kitchen team.</p></div>
+<div class="info-card reveal"><small>04 / FABRIC CHOICE</small><h3>Fabric Choice</h3><p>Cotton and cotton-blend options can be reviewed around heat, wash frequency and required feel.</p></div>
+<div class="info-card reveal"><small>05 / QUOTATION</small><h3>Requirement-based pricing</h3><p>Pricing is prepared around product, fabric, branding, quantity, size mix and delivery requirement rather than a fixed catalogue price.</p></div>
+<div class="info-card reveal"><small>06 / APPROVAL</small><h3>Confirm before production</h3><p>Product details, commercial terms and the final requirement are confirmed before the order moves into production.</p></div>
+</div></div>
+</section>
+
+<section class="cta">
+<div class="container cta-inner">
+<div class="reveal">
+<div class="eyebrow">05 — START YOUR REQUIREMENT</div>
+<h2>Tell us what<br>you need.</h2>
+<p>Share your quantity, sizes, preferred fabric, colours, branding and required date.</p>
+</div>
+<a href="#" data-whatsapp-product class="btn btn-primary reveal">Send Your Requirement</a>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-topline">
+      <span>LUCHIFER / CUSTOM CLOTHING &amp; UNIFORMS</span>
+      <span>Made around your requirement.</span>
+    </div>
+    <div class="site-footer-grid site-footer-grid-pro">
+      <div class="site-footer-brand">
+        <div class="site-footer-logo">LUCH<span>I</span>FER</div>
+        <p class="site-footer-description">Professional uniforms, workwear and custom clothing developed around your business — from fabric and fit to branding, production and delivery.</p>
+        <a class="site-footer-cta" href="contact.html">Send Your Requirement <span>→</span></a>
+      </div>
+      <div>
+        <div class="site-footer-heading">Explore</div>
+        <div class="site-footer-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="quality.html">Quality</a>
+          <a href="industries.html">Industries</a>
+          <a href="about.html">About</a>
+          <a href="career.html">Vision</a>
+        </div>
+      </div>
+      <div>
+        <div class="site-footer-heading">Products</div>
+        <div class="site-footer-links">
+          <a href="corporate-uniform.html">Corporate Uniform</a>
+          <a href="cafe-restaurant.html">Café &amp; Restaurant</a>
+          <a href="chef-uniform.html">Chef Uniform</a>
+          <a href="hotel-uniform.html">Hotel Uniform</a>
+          <a href="industrial-workwear.html">Industrial Workwear</a>
+          <a href="delivery-staff-wear.html">Delivery Staff Wear</a>
+        </div>
+      </div>
+      <div>
+        <div class="site-footer-heading">Resources &amp; Contact</div>
+        <div class="site-footer-links">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="faq.html">FAQ</a>
+          <a href="policies.html">Policies</a>
+          <a href="care-size.html">Care &amp; Size Guide</a>
+        </div>
+        <div class="site-footer-contact-pro">
+          <a href="https://wa.me/917235851276" target="_blank" rel="noopener"><small>WhatsApp</small><span>+91 72358 51276</span></a>
+          <a href="mailto:gauravyadavindia01@gmail.com"><small>Email</small><span>gauravyadavindia01@gmail.com</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer-bottom site-footer-bottom-pro">
+      <span>© 2026 Luchifer. All rights reserved.</span>
+      <span>Custom Clothing · Uniforms · Workwear</span>
+      <span>Pan India Requirement Support</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

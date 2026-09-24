@@ -1,0 +1,60 @@
+LUCHIFER IMAGE MAP — UNIQUE IMAGE PER PLACEMENT
+
+Rule: each visual source is used only once across the full website. The home hero keeps the supplied Luchifer workwear image. Product pages use three distinct visual angles/styles: hero, detail, and look.
+
+Free stock sources are from Pexels/Unsplash pages selected for category relevance. URLs below are direct image endpoints used by the site.
+
+HOME_FEATURE: https://images.pexels.com/photos/7775465/pexels-photo-7775465.jpeg?auto=compress&cs=tinysrgb&w=1800
+HOME_CORP: https://images.pexels.com/photos/36714222/pexels-photo-36714222.jpeg?auto=compress&cs=tinysrgb&w=1200
+HOME_CAFE: https://images.pexels.com/photos/4350081/pexels-photo-4350081.jpeg?auto=compress&cs=tinysrgb&w=1200
+HOME_CHEF: https://images.pexels.com/photos/15323378/pexels-photo-15323378.jpeg?auto=compress&cs=tinysrgb&w=1200
+HOME_HOTEL: https://images.pexels.com/photos/5378709/pexels-photo-5378709.jpeg?auto=compress&cs=tinysrgb&w=1200
+HOME_INDUSTRIAL: https://images.pexels.com/photos/31212947/pexels-photo-31212947.jpeg?auto=compress&cs=tinysrgb&w=1200
+HOME_DELIVERY: https://images.pexels.com/photos/38789029/pexels-photo-38789029.jpeg?auto=compress&cs=tinysrgb&w=1200
+PROD_CORP: https://images.pexels.com/photos/10376243/pexels-photo-10376243.jpeg?auto=compress&cs=tinysrgb&w=1400
+PROD_CAFE: https://images.pexels.com/photos/3769740/pexels-photo-3769740.jpeg?auto=compress&cs=tinysrgb&w=1400
+PROD_CHEF: https://images.pexels.com/photos/32224391/pexels-photo-32224391.jpeg?auto=compress&cs=tinysrgb&w=1400
+PROD_HOTEL: https://images.pexels.com/photos/16731630/pexels-photo-16731630.jpeg?auto=compress&cs=tinysrgb&w=1400
+PROD_INDUSTRIAL: https://images.pexels.com/photos/32845662/pexels-photo-32845662.jpeg?auto=compress&cs=tinysrgb&w=1400
+PROD_DELIVERY: https://images.pexels.com/photos/36547280/pexels-photo-36547280.jpeg?auto=compress&cs=tinysrgb&w=1400
+CORP_HERO: assets/corporate-model-beige.jpg
+CORP_DETAIL: assets/corporate-model-navy.jpg
+CORP_LOOK: assets/corporate-model-pinstripe.jpg
+CAFE_HERO: https://images.pexels.com/photos/33934080/pexels-photo-33934080.jpeg?auto=compress&cs=tinysrgb&w=2200
+CAFE_DETAIL: https://images.pexels.com/photos/36799159/pexels-photo-36799159.jpeg?auto=compress&cs=tinysrgb&w=1800
+CAFE_LOOK: https://images.pexels.com/photos/12276390/pexels-photo-12276390.jpeg?auto=compress&cs=tinysrgb&w=2200
+CHEF_HERO: https://images.pexels.com/photos/11322617/pexels-photo-11322617.jpeg?auto=compress&cs=tinysrgb&w=2200
+CHEF_DETAIL: https://images.pexels.com/photos/6939763/pexels-photo-6939763.jpeg?auto=compress&cs=tinysrgb&w=1800
+CHEF_LOOK: https://images.pexels.com/photos/4590938/pexels-photo-4590938.jpeg?auto=compress&cs=tinysrgb&w=2200
+HOTEL_HERO: https://images.pexels.com/photos/36684286/pexels-photo-36684286.jpeg?auto=compress&cs=tinysrgb&w=2200
+HOTEL_DETAIL: https://images.pexels.com/photos/5371567/pexels-photo-5371567.jpeg?auto=compress&cs=tinysrgb&w=1800
+HOTEL_LOOK: https://images.pexels.com/photos/6474521/pexels-photo-6474521.jpeg?auto=compress&cs=tinysrgb&w=2200
+IND_HERO: https://images.pexels.com/photos/32845669/pexels-photo-32845669.jpeg?auto=compress&cs=tinysrgb&w=2200
+IND_DETAIL: https://images.pexels.com/photos/35383622/pexels-photo-35383622.jpeg?auto=compress&cs=tinysrgb&w=1800
+IND_LOOK: https://images.pexels.com/photos/17572741/pexels-photo-17572741.jpeg?auto=compress&cs=tinysrgb&w=2200
+DEL_HERO: https://images.pexels.com/photos/7363125/pexels-photo-7363125.jpeg?auto=compress&cs=tinysrgb&w=2200
+DEL_DETAIL: https://images.pexels.com/photos/7363061/pexels-photo-7363061.jpeg?auto=compress&cs=tinysrgb&w=1800
+DEL_LOOK: https://images.pexels.com/photos/34399242/pexels-photo-34399242.jpeg?auto=compress&cs=tinysrgb&w=2200
+QUALITY_BANNER: https://images.pexels.com/photos/31251599/pexels-photo-31251599.jpeg?auto=compress&cs=tinysrgb&w=2200
+QUALITY_DETAIL: https://images.pexels.com/photos/3965543/pexels-photo-3965543.jpeg?auto=compress&cs=tinysrgb&w=1600
+ABOUT_HERO: https://images.pexels.com/photos/28426637/pexels-photo-28426637.jpeg?auto=compress&cs=tinysrgb&w=2200
+ABOUT_DETAIL: https://images.unsplash.com/photo-1523381294911-8d3cead13475?auto=format&fit=crop&w=1400&q=85
+VISION_HERO: https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=85
+VISION_DETAIL: https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85
+INDUSTRIES_HERO: https://images.pexels.com/photos/4427617/pexels-photo-4427617.jpeg?auto=compress&cs=tinysrgb&w=2200
+INDUSTRIES_CORP: https://images.pexels.com/photos/7793980/pexels-photo-7793980.jpeg?auto=compress&cs=tinysrgb&w=1400
+INDUSTRIES_CAFE: https://images.pexels.com/photos/6817133/pexels-photo-6817133.jpeg?auto=compress&cs=tinysrgb&w=1400
+INDUSTRIES_CHEF: https://images.pexels.com/photos/28703279/pexels-photo-28703279.jpeg?auto=compress&cs=tinysrgb&w=1400
+INDUSTRIES_HOTEL: https://images.pexels.com/photos/37680832/pexels-photo-37680832.jpeg?auto=compress&cs=tinysrgb&w=1400
+INDUSTRIES_INDUSTRIAL: https://images.pexels.com/photos/35082106/pexels-photo-35082106.jpeg?auto=compress&cs=tinysrgb&w=1400
+INDUSTRIES_DELIVERY: https://images.pexels.com/photos/29260429/pexels-photo-29260429.jpeg?auto=compress&cs=tinysrgb&w=1400
+
+
+HOME HERO UPDATE
+- assets/home-hero-desktop.png: new photorealistic wide Luchifer hero created for the website, composed to leave clean negative space for HTML text and avoid the anatomy/cropping issues in the previous hero.
+- assets/home-hero-mobile.png: dedicated vertical crop for phone screens so the hero remains readable and visually balanced instead of forcing the desktop image into a narrow viewport.
+
+
+FORM / EMAIL
+Form backend: https://formsubmit.co/ (AJAX endpoint; requirement emails to the Luchifer contact inbox).
+Reference/logo files are attached to the submission when provided.
