@@ -1,28 +1,104 @@
 Luchifer Website — Research Upgrade Notes
 
-This version keeps the existing Luchifer visual direction and adds the information architecture observed across the reference websites supplied by the owner.
+This version keeps the existing Luchifer visual direction and adds the
+information architecture observed across the reference websites supplied
+by the owner.
 
 Research themes incorporated:
-- Fortera Apparel: clear custom-order workflow, artwork/mockup approval, product/industry organization, FAQs, sample/production explanation, and detailed product information.
-- Vihaan International: manufacturing capabilities, industry-specific divisions, quality-control stages, export/delivery information, quote-oriented calls to action, and structured resource/footer navigation.
-- Mafatlal Uniforms: strong category segmentation, institutional/industry collections, product catalogue structure, brand/trust presentation, and clear company/resource navigation.
-- BR MODE: B2B-first positioning, industry/category pathways, bulk enquiry journeys, manufacturing/OEM framing, catalogue/resource access, and capability snapshots.
-- Velocity Wear: quote form structure, MOQ/quantity discussion, material/decoration explanations, industry pages, FAQ/answer library, sample-before-bulk concept, reorder considerations, and delivery/production steps.
+- Fortera Apparel: clear custom-order workflow, artwork/mockup approval,
+  product/industry organization, FAQs, sample/production explanation, and
+  detailed product information.
+- Vihaan International: manufacturing capabilities, industry-specific
+  divisions, quality-control stages, export/delivery information,
+  quote-oriented calls to action, and structured resource/footer navigation.
+- Mafatlal Uniforms: strong category segmentation, institutional/industry
+  collections, product catalogue structure, brand/trust presentation, and
+  clear company/resource navigation.
+- BR MODE: B2B-first positioning, industry/category pathways, bulk enquiry
+  journeys, manufacturing/OEM framing, catalogue/resource access, and
+  capability snapshots.
+- Velocity Wear: quote form structure, MOQ/quantity discussion,
+  material/decoration explanations, industry pages, FAQ/answer library,
+  sample-before-bulk concept, reorder considerations, and
+  delivery/production steps.
 
 Luchifer-specific implementation:
 - Home page visual design remains the existing Luchifer design.
-- Existing product categories and unique-image rule are preserved; no image source was intentionally duplicated.
-- Product pages now contain more B2B detail: product scope, fabric/fit, branding, sizing, department/use considerations, quotation logic, and approval before production.
+- Existing product categories and unique-image rule are preserved;
+  no image source was intentionally duplicated.
+- Product pages contain B2B detail: product scope, fabric/fit, branding,
+  sizing, department/use considerations, quotation logic, and approval
+  before production.
 - Added How It Works page.
 - Added FAQ page.
-- Added Policies & Order Terms page. It avoids inventing fixed commercial terms; order-specific terms are confirmed in the quotation/order confirmation.
-- Added Care & Size Guide.
-- Products page now links to the new information resources.
-- Footer now includes a Resources area.
-- All local page references were validated; no missing local links were found.
+- Added Policies & Order Terms page. It avoids inventing fixed commercial
+  terms; order-specific terms are confirmed in the quotation/order
+  confirmation.
+- Added Care & Size Guide page.
+- Products page links to the new information resources.
+- Footer includes a Resources area.
+- All local page references were validated; no missing local links found.
 - JavaScript syntax was validated with Node.
-- Image check: 38 image placements and 38 unique image sources in the HTML set.
+- Image check: image sources remain unique across the HTML set.
+
+Complete page list (17 pages):
+  index.html               — Home
+  products.html            — Products listing
+  corporate-uniform.html   — Corporate Uniform
+  cafe-restaurant.html     — Café & Restaurant (includes chef & full team)
+  school-uniform.html      — School Uniform (replaced Chef Uniform page)
+  hotel-uniform.html       — Hotel Uniform
+  industrial-workwear.html — Industrial Workwear
+  delivery-staff-wear.html — Delivery Staff Wear
+  quality.html             — Quality
+  industries.html          — Industries
+  about.html               — About
+  career.html              — Vision
+  contact.html             — Contact form
+  care-size.html           — Care & Size Guide
+  how-it-works.html        — How It Works
+  faq.html                 — FAQ
+  policies.html            — Policies
+
+Recent structural updates:
+- The Chef Uniform page was merged into the Café & Restaurant page,
+  because chef clothing is a core part of café/restaurant operations.
+  The Café & Restaurant page now covers the complete team:
+  waiters, chefs, reception, bar, kitchen support and housekeeping.
+- A new School Uniform page was created (schools are a distinct market
+  with their own clothing requirements: daily uniforms, sports wear,
+  winter wear, house-wise sets and school staff uniforms).
+- All navigation, footer links and product grids across every page were
+  updated to reflect this change (Chef → School).
 
 Important:
-- Reference-site wording was not copied verbatim. The Luchifer copy is written specifically for Luchifer.
-- Where the reference sites state their own prices, MOQs, certifications, production capacities, or policies, those figures were not transferred to Luchifer unless already part of Luchifer's own site information.
+- Reference-site wording was not copied verbatim. The Luchifer copy is
+  written specifically for Luchifer.
+- Where the reference sites state their own prices, MOQs, certifications,
+  production capacities, or policies, those figures were not transferred
+  to Luchifer unless already part of Luchifer's own site information.
+
+
+Luchifer contact details (used consistently across all pages):
+- WhatsApp: +91 77048 10716
+- Email:    Krishnayadavindia01@gmail.com
+- WhatsApp pre-filled message (footer):
+    "Hello Luchifer, I want to discuss my uniform requirement.
+     Please share details."
+- Email subject (footer): "Uniform Requirement Enquiry"
+- Form submission endpoint: FormSubmit.co (AJAX to
+  Krishnayadavindia01@gmail.com)
+
+
+Design & theme notes:
+- Unified dark Luchifer palette across all pages:
+    --black:  #090909   (page background)
+    --panel:  #151513   (cards, panels, form inputs)
+    --cream:  #f3efe6   (primary text)
+    --muted:  #918e86   (secondary text)
+    --gold:   #c6a66d   (accent, borders on hover)
+    --line:   rgba(243,239,230,.13)  (dividers)
+- No bright white content blocks anywhere on the site.
+- Process step cards, info cards and quality items all use the dark panel
+  background with gold accents and hover lift.
+- Section numbers on product pages use a consistent 01 → 07 sequence.
