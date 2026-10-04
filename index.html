@@ -86,10 +86,62 @@ button{
 
 
 /* =========================================================
+   SITE LOADER
+========================================================= */
+
+.site-loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#0d0d0d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity .5s ease, visibility .5s ease;
+}
+
+.site-loader.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.site-loader-inner{
+  text-align:center;
+  color:#fff;
+}
+
+.site-loader-logo{
+  font-family:"Playfair Display",serif;
+  font-size:34px;
+  letter-spacing:.14em;
+  margin-bottom:16px;
+}
+
+.site-loader-logo span{
+  color:var(--gold);
+}
+
+.site-loader-line{
+  width:180px;
+  height:1px;
+  margin:0 auto 14px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.site-loader-text{
+  font-size:11px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#a8a29a;
+}
+
+
+/* =========================================================
    HEADER
 ========================================================= */
 
-header{
+.site-header{
   position:fixed;
   z-index:100;
   top:0;
@@ -103,14 +155,17 @@ header{
   border-bottom:1px solid rgba(255,255,255,.10);
 }
 
-.nav{
+.site-nav{
   height:100%;
+  width:min(var(--max),calc(100% - 48px));
+  margin:auto;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
-.logo{
+.site-logo{
   font-family:"Playfair Display",serif;
   font-size:27px;
   font-weight:600;
@@ -118,10 +173,14 @@ header{
   color:#fff;
 }
 
+.site-logo span{
+  color:var(--gold-light);
+}
+
 
 /* Desktop Navigation */
 
-.links{
+.site-links{
   display:flex;
   align-items:center;
   gap:27px;
@@ -132,20 +191,25 @@ header{
   font-weight:600;
 }
 
-.links a{
+.site-links a{
   opacity:.88;
   transition:.25s;
 }
 
-.links a:hover{
+.site-links a:hover{
   color:#d5bd87;
   opacity:1;
 }
 
-.nav-btn{
+.site-cta{
   border:1px solid #cdb47c;
-  padding:11px 16px !important;
+  padding:11px 16px;
   opacity:1 !important;
+}
+
+.site-cta:hover{
+  background:var(--gold);
+  color:#fff !important;
 }
 
 
@@ -153,7 +217,7 @@ header{
    MOBILE MENU BUTTON
 ========================================================= */
 
-.menu-toggle{
+.site-menu{
   display:none;
 
   width:44px;
@@ -171,7 +235,7 @@ header{
   gap:5px;
 }
 
-.menu-toggle span{
+.site-menu span{
   display:block;
 
   width:24px;
@@ -184,12 +248,24 @@ header{
   transition:.25s;
 }
 
+.site-menu.open span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+
+.site-menu.open span:nth-child(2){
+  opacity:0;
+}
+
+.site-menu.open span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
 
 /* =========================================================
-   MOBILE MENU
+   MOBILE MENU PANEL
 ========================================================= */
 
-.mobile-menu{
+.site-mobile-menu{
   display:none;
 
   position:absolute;
@@ -207,11 +283,11 @@ header{
   padding:8px 15px 16px;
 }
 
-.mobile-menu.open{
+.site-mobile-menu.open{
   display:block;
 }
 
-.mobile-menu a{
+.site-mobile-menu a{
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -226,11 +302,11 @@ header{
   font-weight:600;
 }
 
-.mobile-menu a span{
+.site-mobile-menu a span{
   color:var(--gold-light);
 }
 
-.mobile-menu .mobile-cta{
+.site-mobile-menu .site-mobile-cta{
   margin-top:8px;
 
   padding:14px 16px;
@@ -240,6 +316,8 @@ header{
   border:0;
 
   color:#fff;
+
+  border-bottom:0;
 }
 
 
@@ -266,11 +344,29 @@ header{
       rgba(10,10,10,.20) 100%
     ),
     url("assets/home-hero-desktop.png")
-    center/cover;
+    center center / cover no-repeat;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(8,8,8,.82),
+    rgba(8,8,8,.42) 52%,
+    rgba(8,8,8,.14)
+  );
+  pointer-events:none;
+}
+
+.hero .wrap{
+  position:relative;
+  z-index:1;
 }
 
 .hero-copy{
-  max-width:760px;
+  max-width:720px;
   padding:80px 0;
 }
 
@@ -321,6 +417,8 @@ header{
   font-weight:700;
 
   transition:.25s;
+
+  cursor:pointer;
 }
 
 .btn:hover{
@@ -345,6 +443,17 @@ header{
 .outline:hover{
   background:#fff;
   color:#151515;
+}
+
+.btn-dark{
+  color:#151515;
+  border-color:#151515;
+  background:transparent;
+}
+
+.btn-dark:hover{
+  background:#151515;
+  color:#fff;
 }
 
 
@@ -406,7 +515,7 @@ section{
 .heading{
   display:flex;
   justify-content:space-between;
-  align-items:end;
+  align-items:flex-end;
 
   gap:40px;
 
@@ -478,13 +587,14 @@ section{
   height:100%;
 
   object-fit:cover;
+  object-position:center;
 
   display:block;
 
   transition:.55s;
 }
 
-.product:hover img{
+.product:hover .photo img{
   transform:scale(1.035);
 }
 
@@ -535,12 +645,15 @@ section{
   grid-template-columns:1.05fr .95fr;
 
   min-height:610px;
+
+  padding:0;
 }
 
 .feature-img{
   background:
     url("https://images.pexels.com/photos/7775465/pexels-photo-7775465.jpeg?auto=compress&cs=tinysrgb&w=1800")
-    center/cover;
+    center center / cover no-repeat;
+  min-height:430px;
 }
 
 .feature-copy{
@@ -700,7 +813,7 @@ section{
    PREMIUM FOOTER
 ========================================================= */
 
-.footer{
+.site-footer{
   background:#0d0d0d;
 
   color:#fff;
@@ -708,17 +821,36 @@ section{
   border-top:1px solid rgba(255,255,255,.08);
 }
 
-.footer-top{
-  padding:70px 0 45px;
-
-  display:grid;
-
-  grid-template-columns:2fr 1fr 1fr 1.3fr;
-
-  gap:40px;
+.site-footer-inner{
+  width:min(var(--max),calc(100% - 48px));
+  margin:auto;
 }
 
-.footer-logo{
+.site-footer-topline{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+
+  padding:22px 0;
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#8c8880;
+}
+
+.site-footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1.3fr;
+  gap:40px;
+
+  padding:55px 0 45px;
+}
+
+.site-footer-logo{
   font-family:"Playfair Display",serif;
 
   font-size:32px;
@@ -728,7 +860,11 @@ section{
   margin-bottom:16px;
 }
 
-.footer-desc{
+.site-footer-logo span{
+  color:var(--gold-light);
+}
+
+.site-footer-description{
   color:#9c9c9c;
 
   line-height:1.8;
@@ -736,9 +872,32 @@ section{
   max-width:420px;
 
   font-size:14px;
+
+  margin:0 0 20px;
 }
 
-.footer-title{
+.site-footer-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  font-size:13px;
+  font-weight:700;
+
+  color:var(--gold-light);
+
+  border-bottom:1px solid rgba(209,176,113,.4);
+  padding-bottom:4px;
+
+  transition:.25s;
+}
+
+.site-footer-cta:hover{
+  color:#fff;
+  border-color:#fff;
+}
+
+.site-footer-heading{
   color:#d1b071;
 
   text-transform:uppercase;
@@ -752,7 +911,7 @@ section{
   margin-bottom:18px;
 }
 
-.footer-links{
+.site-footer-links{
   display:flex;
 
   flex-direction:column;
@@ -760,7 +919,7 @@ section{
   gap:12px;
 }
 
-.footer-links a{
+.site-footer-links a{
   color:#d5d5d5;
 
   font-size:14px;
@@ -768,41 +927,41 @@ section{
   transition:.25s;
 }
 
-.footer-links a:hover{
+.site-footer-links a:hover{
   color:#fff;
-
   transform:translateX(4px);
 }
 
-.contact-box{
+.site-footer-contact-pro{
   display:flex;
-
   flex-direction:column;
-
   gap:14px;
+
+  margin-top:22px;
 }
 
-.contact-item{
+.site-footer-contact-pro a{
   display:flex;
-
-  align-items:flex-start;
-
-  gap:12px;
+  flex-direction:column;
+  gap:2px;
 
   color:#d8d8d8;
-
   font-size:14px;
+  transition:.25s;
 }
 
-.contact-item i{
-  width:18px;
+.site-footer-contact-pro a:hover{
+  color:#fff;
+}
 
+.site-footer-contact-pro small{
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
   color:var(--gold);
-
-  font-style:normal;
 }
 
-.footer-bottom{
+.site-footer-bottom{
   border-top:1px solid rgba(255,255,255,.08);
 
   padding:22px 0;
@@ -816,42 +975,10 @@ section{
   flex-wrap:wrap;
 
   gap:12px;
-}
 
-.footer-copy{
   color:#7d7d7d;
 
   font-size:13px;
-}
-
-.footer-social{
-  display:flex;
-
-  gap:12px;
-}
-
-.footer-social a{
-  width:42px;
-  height:42px;
-
-  border:1px solid rgba(255,255,255,.12);
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  color:#fff;
-
-  transition:.25s;
-
-  font-size:15px;
-}
-
-.footer-social a:hover{
-  background:var(--gold);
-
-  border-color:var(--gold);
 }
 
 
@@ -861,11 +988,11 @@ section{
 
 @media(max-width:900px){
 
-  .links{
+  .site-links{
     display:none;
   }
 
-  .menu-toggle{
+  .site-menu{
     display:flex;
   }
 
@@ -895,8 +1022,9 @@ section{
     margin-top:18px;
   }
 
-  .footer-top{
+  .site-footer-grid{
     grid-template-columns:1fr 1fr;
+    gap:32px;
   }
 }
 
@@ -907,12 +1035,15 @@ section{
 
 @media(max-width:600px){
 
+  .wrap,
+  .site-nav,
+  .site-footer-inner{
+    width:calc(100% - 30px);
+  }
+
   .hero{
-    min-height:760px;
-    background-size:100% auto;
-    background-position:center 76px;
-    background-repeat:no-repeat;
-    background-color:#16363a;
+    min-height:720px;
+    background-position:center center;
     align-items:flex-end;
   }
 
@@ -921,14 +1052,6 @@ section{
     padding-bottom:46px;
     position:relative;
     z-index:2;
-  }
-
-  .wrap{
-    width:calc(100% - 30px);
-  }
-
-  .hero{
-    min-height:720px;
   }
 
   .hero h1{
@@ -947,7 +1070,6 @@ section{
 
   .trust-item{
     border-left:0;
-
     border-top:1px solid #3b3935;
   }
 
@@ -967,42 +1089,38 @@ section{
     font-size:40px;
   }
 
-  .footer-top{
+  .site-footer-grid{
     grid-template-columns:1fr;
-
     padding:55px 0 35px;
-
     gap:28px;
   }
 
-  .footer-bottom{
+  .site-footer-bottom{
     flex-direction:column;
-
     text-align:center;
   }
 
-  .footer-logo{
+  .site-footer-logo{
     font-size:28px;
   }
 
-  .footer-social{
-    justify-content:center;
+  .site-footer-topline{
+    flex-direction:column;
+    text-align:center;
   }
 }
 
-
-/* Home visual direction */
-.hero{background-position:center center !important;}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.82),rgba(8,8,8,.42) 52%,rgba(8,8,8,.14));pointer-events:none;}
-.hero .wrap{position:relative;z-index:1;}
-.hero-copy{max-width:720px;}
-.product-card img{object-fit:cover;object-position:center;}
 </style>
 <link rel="stylesheet" href="shared.css">
 </head>
 
 
 <body>
+
+<!-- =====================================================
+     SITE LOADER
+===================================================== -->
+
 <div class="site-loader" id="siteLoader" aria-hidden="true">
   <div class="site-loader-inner">
     <div class="site-loader-logo">LUCH<span>I</span>FER</div>
@@ -1019,6 +1137,7 @@ section{
 <header class="site-header" id="siteHeader">
   <div class="site-nav">
     <a href="index.html" class="site-logo">LUCH<span>I</span>FER</a>
+
     <nav class="site-links" id="siteLinks" aria-label="Main navigation">
       <a href="index.html" data-page="index.html">Home</a>
       <a href="products.html" data-page="products.html">Products</a>
@@ -1028,9 +1147,21 @@ section{
       <a href="career.html" data-page="career.html">Vision</a>
       <a href="contact.html" class="site-cta">Send Requirement</a>
     </nav>
-    <button class="site-menu" id="siteMenu" type="button" aria-label="Open menu" aria-expanded="false">
+
+    <button class="site-menu" id="siteMenu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteMobileMenu">
       <span></span><span></span><span></span>
     </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div class="site-mobile-menu" id="siteMobileMenu">
+    <a href="index.html">Home <span>→</span></a>
+    <a href="products.html">Products <span>→</span></a>
+    <a href="quality.html">Quality <span>→</span></a>
+    <a href="industries.html">Industries <span>→</span></a>
+    <a href="about.html">About <span>→</span></a>
+    <a href="career.html">Vision <span>→</span></a>
+    <a href="contact.html" class="site-mobile-cta">Send Requirement</a>
   </div>
 </header>
 
@@ -1047,42 +1178,39 @@ section{
 
 <section class="hero">
 
-<div class="wrap">
+  <div class="wrap">
 
-<div class="hero-copy">
+    <div class="hero-copy">
 
-<div class="kicker">
-Custom Clothing & Uniforms
-</div>
+      <div class="kicker">
+        Custom Clothing & Uniforms
+      </div>
 
+      <h1>
+        Made for your standard.
+      </h1>
 
-<h1>
-Made for your standard.
-</h1>
+      <p>
+        Professional uniforms, workwear and custom clothing
+        developed around your requirement — from fabric and fit
+        to branding, quantity and final finish.
+      </p>
 
+      <div class="actions">
 
-<p>
-Professional uniforms, workwear and custom clothing
-developed around your requirement — from fabric and fit
-to branding, quantity and final finish.
-</p>
+        <a href="products.html" class="btn primary">
+          Explore Products
+        </a>
 
+        <a href="contact.html" class="btn outline">
+          Send Your Requirement
+        </a>
 
-<div class="actions">
+      </div>
 
-<a href="products.html" class="btn primary">
-Explore Products
-</a>
+    </div>
 
-<a href="contact.html" class="btn outline">
-Send Your Requirement
-</a>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -1090,66 +1218,33 @@ Send Your Requirement
 
 <!-- TRUST -->
 
-<div class="trust">
+<section class="trust" style="padding:0;">
 
-<div class="wrap trust-grid">
+  <div class="wrap trust-grid">
 
+    <div class="trust-item">
+      <strong>Requirement First</strong>
+      <span>We understand what you need before production begins.</span>
+    </div>
 
-<div class="trust-item">
+    <div class="trust-item">
+      <strong>Sample Approval</strong>
+      <span>Develop the product around your preferred look and fit.</span>
+    </div>
 
-<strong>
-Requirement First
-</strong>
+    <div class="trust-item">
+      <strong>Quality Checked</strong>
+      <span>Focus on construction, branding and finishing.</span>
+    </div>
 
-<span>
-We understand what you need before production begins.
-</span>
+    <div class="trust-item">
+      <strong>Direct Contact</strong>
+      <span>Discuss your requirement directly with our team.</span>
+    </div>
 
-</div>
+  </div>
 
-
-<div class="trust-item">
-
-<strong>
-Sample Approval
-</strong>
-
-<span>
-Develop the product around your preferred look and fit.
-</span>
-
-</div>
-
-
-<div class="trust-item">
-
-<strong>
-Quality Checked
-</strong>
-
-<span>
-Focus on construction, branding and finishing.
-</span>
-
-</div>
-
-
-<div class="trust-item">
-
-<strong>
-Direct Contact
-</strong>
-
-<span>
-Discuss your requirement directly with our team.
-</span>
-
-</div>
-
-
-</div>
-
-</div>
+</section>
 
 
 
@@ -1157,237 +1252,135 @@ Discuss your requirement directly with our team.
 
 <section>
 
-<div class="wrap">
-
-
-<div class="heading">
-
-<div>
-
-<div class="kicker">
-Our Products
-</div>
-
-<h2>
-Clothing designed for the way your team works.
-</h2>
-
-</div>
-
-
-<p>
-Explore professional uniforms and workwear for corporate,
-hospitality, kitchen, hotel, industrial and delivery teams.
-</p>
-
-</div>
-
-
-
-<div class="products">
-
-
-<!-- CORPORATE -->
-
-<a class="product" href="corporate-uniform.html">
-
-<div class="photo">
-
-<img
-src="https://images.pexels.com/photos/36714222/pexels-photo-36714222.jpeg?auto=compress&cs=tinysrgb&w=1200"
-alt="Corporate uniform"
->
-
-</div>
-
-<div class="product-body">
-
-<h3>
-Corporate Uniform
-</h3>
-
-<p>
-Clean, professional clothing for office and business teams.
-</p>
-
-<span class="view">
-View Product →
-</span>
-
-</div>
-
-</a>
-
-
-
-<!-- RESTAURANT -->
-
-<a class="product" href="cafe-restaurant.html">
-
-<div class="photo">
-
-<img
-src="https://images.pexels.com/photos/4350081/pexels-photo-4350081.jpeg?auto=compress&cs=tinysrgb&w=1200"
-alt="Cafe and restaurant uniform"
->
-
-</div>
-
-<div class="product-body">
-
-<h3>
-Café & Restaurant
-</h3>
-
-<p>
-Smart service wear built for hospitality environments.
-</p>
-
-<span class="view">
-View Product →
-</span>
-
-</div>
-
-</a>
-
-
-
-<!-- CHEF -->
-
-<a class="product" href="chef-uniform.html">
-
-<div class="photo">
-
-<img
-src="https://images.unsplash.com/photo-1616734755909-bb016ce64930?auto=format&fit=crop&w=1400&q=88"
-alt="Professional chef preparing food in a white chef uniform"
-loading="lazy"
->
-
-</div>
-
-<div class="product-body">
-
-<h3>
-Chef Uniform
-</h3>
-
-<p>
-Practical kitchen clothing designed for comfort and movement.
-</p>
-
-<span class="view">
-View Product →
-</span>
-
-</div>
-
-</a>
-
-
-
-<!-- HOTEL -->
-
-<a class="product" href="hotel-uniform.html">
-
-<div class="photo">
-
-<img
-src="https://images.pexels.com/photos/5378709/pexels-photo-5378709.jpeg?auto=compress&cs=tinysrgb&w=1200"
-alt="Hotel uniform"
->
-
-</div>
-
-<div class="product-body">
-
-<h3>
-Hotel Uniform
-</h3>
-
-<p>
-Consistent hospitality wear for service and hotel teams.
-</p>
-
-<span class="view">
-View Product →
-</span>
-
-</div>
-
-</a>
-
-
-
-<!-- INDUSTRIAL -->
-
-<a class="product" href="industrial-workwear.html">
-
-<div class="photo">
-
-<img
-src="https://images.pexels.com/photos/31212947/pexels-photo-31212947.jpeg?auto=compress&cs=tinysrgb&w=1200"
-alt="Industrial workwear"
->
-
-</div>
-
-<div class="product-body">
-
-<h3>
-Industrial Workwear
-</h3>
-
-<p>
-Functional clothing developed around the working environment.
-</p>
-
-<span class="view">
-View Product →
-</span>
-
-</div>
-
-</a>
-
-
-
-<!-- DELIVERY -->
-
-<a class="product" href="delivery-staff-wear.html">
-
-<div class="photo">
-
-<img
-src="https://images.pexels.com/photos/38789029/pexels-photo-38789029.jpeg?auto=compress&cs=tinysrgb&w=1200"
-alt="Delivery staff wear"
->
-
-</div>
-
-<div class="product-body">
-
-<h3>
-Delivery Staff Wear
-</h3>
-
-<p>
-Branded, practical apparel for teams working on the move.
-</p>
-
-<span class="view">
-View Product →
-</span>
-
-</div>
-
-</a>
-
-
-</div>
-
-</div>
+  <div class="wrap">
+
+    <div class="heading">
+
+      <div>
+        <div class="kicker">Our Products</div>
+        <h2>Clothing designed for the way your team works.</h2>
+      </div>
+
+      <p>
+        Explore professional uniforms and workwear for corporate,
+        hospitality, school, hotel, industrial and delivery teams.
+      </p>
+
+    </div>
+
+
+
+    <div class="products">
+
+      <!-- CORPORATE -->
+      <a class="product" href="corporate-uniform.html">
+        <div class="photo">
+          <img
+            src="https://images.pexels.com/photos/36714222/pexels-photo-36714222.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Corporate uniform"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-body">
+          <h3>Corporate Uniform</h3>
+          <p>Clean, professional clothing for office and business teams.</p>
+          <span class="view">View Product →</span>
+        </div>
+      </a>
+
+
+
+      <!-- RESTAURANT -->
+      <a class="product" href="cafe-restaurant.html">
+        <div class="photo">
+          <img
+            src="https://images.pexels.com/photos/4350081/pexels-photo-4350081.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Cafe and restaurant uniform"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-body">
+          <h3>Café & Restaurant</h3>
+          <p>Smart service wear built for hospitality environments.</p>
+          <span class="view">View Product →</span>
+        </div>
+      </a>
+
+
+
+      <!-- SCHOOL -->
+      <a class="product" href="school-uniform.html">
+        <div class="photo">
+          <img
+            src="https://images.pexels.com/photos/8471799/pexels-photo-8471799.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="School uniform"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-body">
+          <h3>School Uniform</h3>
+          <p>Smart, comfortable uniforms for students and school staff.</p>
+          <span class="view">View Product →</span>
+        </div>
+      </a>
+
+
+
+      <!-- HOTEL -->
+      <a class="product" href="hotel-uniform.html">
+        <div class="photo">
+          <img
+            src="https://images.pexels.com/photos/5378709/pexels-photo-5378709.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Hotel uniform"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-body">
+          <h3>Hotel Uniform</h3>
+          <p>Consistent hospitality wear for service and hotel teams.</p>
+          <span class="view">View Product →</span>
+        </div>
+      </a>
+
+
+
+      <!-- INDUSTRIAL -->
+      <a class="product" href="industrial-workwear.html">
+        <div class="photo">
+          <img
+            src="https://images.pexels.com/photos/31212947/pexels-photo-31212947.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Industrial workwear"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-body">
+          <h3>Industrial Workwear</h3>
+          <p>Functional clothing developed around the working environment.</p>
+          <span class="view">View Product →</span>
+        </div>
+      </a>
+
+
+
+      <!-- DELIVERY -->
+      <a class="product" href="delivery-staff-wear.html">
+        <div class="photo">
+          <img
+            src="https://images.pexels.com/photos/38789029/pexels-photo-38789029.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Delivery staff wear"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-body">
+          <h3>Delivery Staff Wear</h3>
+          <p>Branded, practical apparel for teams working on the move.</p>
+          <span class="view">View Product →</span>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -1395,107 +1388,63 @@ View Product →
 
 <!-- FEATURE -->
 
-<section class="cream">
+<section class="cream" style="padding:0;">
 
-<div class="wrap feature">
+  <div class="wrap feature">
 
+    <div class="feature-img"></div>
 
-<div class="feature-img">
-</div>
+    <div class="feature-copy">
 
+      <div>
 
-<div class="feature-copy">
+        <div class="kicker">
+          Made Around Your Requirement
+        </div>
 
-<div>
+        <h2>
+          Every business has a different standard.
+        </h2>
 
-<div class="kicker">
-Made Around Your Requirement
-</div>
+        <p>
+          That is why we build clothing around the actual requirement —
+          the fabric, fit, colour, branding, quantity and environment
+          in which the product will be used.
+        </p>
 
+        <div class="points">
 
-<h2>
-Every business has a different standard.
-</h2>
+          <div class="point">
+            <b>Fabric</b>
+            <span>Material selected around use, comfort and requirement.</span>
+          </div>
 
+          <div class="point">
+            <b>Fit & Design</b>
+            <span>Product details developed for your team and look.</span>
+          </div>
 
-<p>
-That is why we build clothing around the actual requirement —
-the fabric, fit, colour, branding, quantity and environment
-in which the product will be used.
-</p>
+          <div class="point">
+            <b>Branding</b>
+            <span>Logo, embroidery, printing and placement.</span>
+          </div>
 
+          <div class="point">
+            <b>Quantity</b>
+            <span>Production planned around your required quantity.</span>
+          </div>
 
-<div class="points">
+        </div>
 
+        <a href="quality.html" class="btn btn-dark">
+          Explore Our Quality
+        </a>
 
-<div class="point">
+      </div>
 
-<b>
-Fabric
-</b>
+    </div>
 
-<span>
-Material selected around use, comfort and requirement.
-</span>
-
-</div>
-
-
-<div class="point">
-
-<b>
-Fit & Design
-</b>
-
-<span>
-Product details developed for your team and look.
-</span>
-
-</div>
-
-
-<div class="point">
-
-<b>
-Branding
-</b>
-
-<span>
-Logo, embroidery, printing and placement.
-</span>
-
-</div>
-
-
-<div class="point">
-
-<b>
-Quantity
-</b>
-
-<span>
-Production planned around your required quantity.
-</span>
-
-</div>
-
-
-</div>
-
-
-<a
-href="quality.html"
-class="btn"
-style="color:#151515;border-color:#151515"
->
-Explore Our Quality
-</a>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -1505,113 +1454,53 @@ Explore Our Quality
 
 <section>
 
-<div class="wrap">
+  <div class="wrap">
 
+    <div class="heading">
 
-<div class="heading">
+      <div>
+        <div class="kicker">Our Process</div>
+        <h2>From your requirement to finished clothing.</h2>
+      </div>
 
-<div>
+      <p>
+        A simple, structured process designed to keep the product
+        aligned with what you actually need.
+      </p>
 
-<div class="kicker">
-Our Process
-</div>
-
-<h2>
-From your requirement to finished clothing.
-</h2>
-
-</div>
-
-
-<p>
-A simple, structured process designed to keep the product
-aligned with what you actually need.
-</p>
-
-</div>
+    </div>
 
 
 
-<div class="process">
+    <div class="process">
 
+      <div class="step">
+        <small>01 / REQUIREMENT</small>
+        <h3>Understand</h3>
+        <p>Product, quantity, fabric, colour, branding and use are discussed.</p>
+      </div>
 
-<div class="step">
+      <div class="step">
+        <small>02 / SAMPLE</small>
+        <h3>Develop</h3>
+        <p>Details are worked out so the look and construction can be reviewed.</p>
+      </div>
 
-<small>
-01 / REQUIREMENT
-</small>
+      <div class="step">
+        <small>03 / PRODUCTION</small>
+        <h3>Make</h3>
+        <p>Approved requirements move into production with consistent finishing.</p>
+      </div>
 
-<h3>
-Understand
-</h3>
+      <div class="step">
+        <small>04 / DELIVERY</small>
+        <h3>Complete</h3>
+        <p>Finished clothing is checked and prepared for delivery.</p>
+      </div>
 
-<p>
-Product, quantity, fabric, colour, branding and use
-are discussed.
-</p>
+    </div>
 
-</div>
-
-
-
-<div class="step">
-
-<small>
-02 / SAMPLE
-</small>
-
-<h3>
-Develop
-</h3>
-
-<p>
-Details are worked out so the look and construction
-can be reviewed.
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-<small>
-03 / PRODUCTION
-</small>
-
-<h3>
-Make
-</h3>
-
-<p>
-Approved requirements move into production with
-consistent finishing.
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-<small>
-04 / DELIVERY
-</small>
-
-<h3>
-Complete
-</h3>
-
-<p>
-Finished clothing is checked and prepared for delivery.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -1621,46 +1510,34 @@ Finished clothing is checked and prepared for delivery.
 
 <section class="final">
 
-<div class="wrap">
+  <div class="wrap">
 
-<div class="kicker">
-Start Your Requirement
-</div>
+    <div class="kicker">
+      Start Your Requirement
+    </div>
 
+    <h2>
+      Tell us what you need.
+    </h2>
 
-<h2>
-Tell us what you need.
-</h2>
+    <p>
+      Share your product, quantity, preferred look and other
+      requirements. We will take it forward from there.
+    </p>
 
+    <div class="actions" style="justify-content:center">
 
-<p>
-Share your product, quantity, preferred look and other
-requirements. We will take it forward from there.
-</p>
+      <a href="contact.html" class="btn primary">
+        Send Your Requirement
+      </a>
 
+      <a href="products.html" class="btn outline">
+        View Products
+      </a>
 
-<div
-class="actions"
-style="justify-content:center"
->
+    </div>
 
-<a
-href="contact.html"
-class="btn primary"
->
-Send Your Requirement
-</a>
-
-<a
-href="products.html"
-class="btn outline"
->
-View Products
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -1675,16 +1552,26 @@ View Products
 
 <footer class="site-footer">
   <div class="site-footer-inner">
+
     <div class="site-footer-topline">
       <span>LUCHIFER / CUSTOM CLOTHING &amp; UNIFORMS</span>
       <span>Made around your requirement.</span>
     </div>
+
     <div class="site-footer-grid site-footer-grid-pro">
+
       <div class="site-footer-brand">
         <div class="site-footer-logo">LUCH<span>I</span>FER</div>
-        <p class="site-footer-description">Professional uniforms, workwear and custom clothing developed around your business — from fabric and fit to branding, production and delivery.</p>
-        <a class="site-footer-cta" href="contact.html">Send Your Requirement <span>→</span></a>
+        <p class="site-footer-description">
+          Professional uniforms, workwear and custom clothing developed
+          around your business — from fabric and fit to branding,
+          production and delivery.
+        </p>
+        <a class="site-footer-cta" href="contact.html">
+          Send Your Requirement <span>→</span>
+        </a>
       </div>
+
       <div>
         <div class="site-footer-heading">Explore</div>
         <div class="site-footer-links">
@@ -1696,17 +1583,19 @@ View Products
           <a href="career.html">Vision</a>
         </div>
       </div>
+
       <div>
         <div class="site-footer-heading">Products</div>
         <div class="site-footer-links">
           <a href="corporate-uniform.html">Corporate Uniform</a>
           <a href="cafe-restaurant.html">Café &amp; Restaurant</a>
-          <a href="chef-uniform.html">Chef Uniform</a>
+          <a href="school-uniform.html">School Uniform</a>
           <a href="hotel-uniform.html">Hotel Uniform</a>
           <a href="industrial-workwear.html">Industrial Workwear</a>
           <a href="delivery-staff-wear.html">Delivery Staff Wear</a>
         </div>
       </div>
+
       <div>
         <div class="site-footer-heading">Resources &amp; Contact</div>
         <div class="site-footer-links">
@@ -1715,29 +1604,92 @@ View Products
           <a href="policies.html">Policies</a>
           <a href="care-size.html">Care &amp; Size Guide</a>
         </div>
+
         <div class="site-footer-contact-pro">
-          <a href="https://wa.me/917235851276" target="_blank" rel="noopener"><small>WhatsApp</small><span>+91 72358 51276</span></a>
-          <a href="mailto:gauravyadavindia01@gmail.com"><small>Email</small><span>gauravyadavindia01@gmail.com</span></a>
+          <a href="https://wa.me/917704810716" target="_blank" rel="noopener">
+            <small>WhatsApp</small>
+            <span>+91 77048 10716</span>
+          </a>
+          <a href="mailto:Krishnayadavindia01@gmail.com">
+            <small>Email</small>
+            <span>Krishnayadavindia01@gmail.com</span>
+          </a>
         </div>
       </div>
+
     </div>
+
     <div class="site-footer-bottom site-footer-bottom-pro">
-      <span>© 2026 Luchifer. All rights reserved.</span>
+      <span>© 2025 Luchifer. All rights reserved.</span>
       <span>Custom Clothing · Uniforms · Workwear</span>
       <span>Pan India Requirement Support</span>
     </div>
+
   </div>
 </footer>
 
 
 
 <!-- =====================================================
-     MOBILE MENU JAVASCRIPT
+     SITE JAVASCRIPT
 ===================================================== -->
 
+<script>
+/* ---------- Loader hide (fallback) ---------- */
+(function () {
+  var loader = document.getElementById('siteLoader');
+  if (!loader) return;
+
+  function hideLoader() {
+    loader.classList.add('hidden');
+    setTimeout(function () {
+      loader.style.display = 'none';
+    }, 600);
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(hideLoader, 400);
+  } else {
+    window.addEventListener('load', function () {
+      setTimeout(hideLoader, 400);
+    });
+  }
+
+  setTimeout(hideLoader, 4000);
+})();
 
 
+/* ---------- Mobile menu toggle ---------- */
+(function () {
+  var btn = document.getElementById('siteMenu');
+  var menu = document.getElementById('siteMobileMenu');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!menu.classList.contains('open')) return;
+    if (btn.contains(e.target) || menu.contains(e.target)) return;
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 
 <script src="script.js"></script>
+
 </body>
 </html>
