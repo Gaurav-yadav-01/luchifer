@@ -1,20 +1,363 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>FAQ — Luchifer</title><meta name="description" content="Frequently asked questions about Luchifer custom clothing, uniforms, samples, pricing, delivery and reorders."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="shared.css"></head><body data-product="Custom Clothing & Uniforms">
-<div class="site-loader" id="siteLoader" aria-hidden="true"><div class="site-loader-inner"><div class="site-loader-logo">LUCH<span>I</span>FER</div><div class="site-loader-line"></div><div class="site-loader-text">Custom Clothing &amp; Uniforms</div></div></div>
-<header class="site-header" id="siteHeader"><div class="site-nav"><a href="index.html" class="site-logo">LUCH<span>I</span>FER</a><nav class="site-links" id="siteLinks"><a href="index.html">Home</a><a href="products.html">Products</a><a href="quality.html">Quality</a><a href="industries.html">Industries</a><a href="about.html">About</a><a href="career.html">Vision</a><a href="#" data-whatsapp-product class="site-cta">Send Requirement</a></nav><button class="site-menu" id="siteMenu" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
-<main><section class="section" style="padding-top:170px"><div class="container"><div class="info-head reveal"><div><div class="eyebrow">01 — FAQ</div><h2>Questions buyers usually ask <em>before ordering.</em></h2></div><p>These answers explain how Luchifer approaches custom uniform requirements. Product-specific commercial terms are confirmed in the quotation.</p></div><div class="faq-list"><details class="faq-item reveal"><summary>Do you make completely custom uniforms?</summary><div class="faq-answer">Yes. Product choice, fabric, colour, fit, branding, trims, size range and department combinations can be discussed around the requirement.</div></details><details class="faq-item reveal"><summary>Can I send a reference image or existing garment?</summary><div class="faq-answer">Yes. A reference image, sketch or existing garment can help communicate the intended fit, colour, construction and branding direction.</div></details><details class="faq-item reveal"><summary>Can different departments have different uniforms?</summary><div class="faq-answer">Yes. A single organisation can use different garments, colours or details for front office, service, kitchen, housekeeping, operations or other departments while keeping one brand system.</div></details><details class="faq-item reveal"><summary>Do you provide samples?</summary><div class="faq-answer">Sample development can be discussed before bulk production. The exact sample process, cost and timeline depend on the product and requirement and are confirmed in the quotation.</div></details><details class="faq-item reveal"><summary>How is pricing decided?</summary><div class="faq-answer">Custom pricing depends on the product, fabric, construction, branding method, quantity, size mix and delivery requirement. The final commercial quote is prepared after the requirement is understood.</div></details><details class="faq-item reveal"><summary>Can I reorder later?</summary><div class="faq-answer">Yes, reorders can be discussed using the previously approved product details so the new requirement can follow the same specification as closely as practical.</div></details><details class="faq-item reveal"><summary>Can you add our logo and employee details?</summary><div class="faq-answer">Logo embroidery, printing, labels and other identification details can be discussed. Names or role-wise identification depend on the product and production method.</div></details><details class="faq-item reveal"><summary>Do you provide delivery across India?</summary><div class="faq-answer">Delivery requirements can be discussed for destinations across India. The quotation should confirm the destination, expected timeline and applicable delivery terms.</div></details><details class="faq-item reveal"><summary>What about protective workwear?</summary><div class="faq-answer">For industrial requirements, the garment specification should be based on the actual hazard and required certified performance. Any applicable standard or certification must be specified and confirmed before production.</div></details><details class="faq-item reveal"><summary>Can I request a complete uniform programme?</summary><div class="faq-answer">Yes. You can send the requirement for multiple departments or multiple garment types together, and the programme can be planned as one coordinated requirement.</div></details></div></div></section></main>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Luchifer</title>
+<meta name="description" content="Frequently asked questions about Luchifer custom clothing, uniforms, samples, pricing, delivery and reorders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+
+<style>
+/* =========================================================
+   THEME
+========================================================= */
+:root{
+  --black:#090909;
+  --panel:#151513;
+  --cream:#f3efe6;
+  --muted:#918e86;
+  --gold:#c6a66d;
+  --line:rgba(243,239,230,.13);
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"DM Sans",Arial,sans-serif;
+  --max:1600px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:var(--sans);
+  line-height:1.6;
+  padding-top:78px;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%}
+
+.container{width:min(var(--max),calc(100% - 48px));margin:0 auto}
+.section{padding:115px 0}
+
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.23em;font-weight:700;color:#d4b67b;margin-bottom:19px}
+
+/* =========================================================
+   LOADER
+========================================================= */
+.site-loader{position:fixed;inset:0;z-index:9999;background:#0d0d0d;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
+.site-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.site-loader-inner{text-align:center;color:#fff}
+.site-loader-logo{font-family:var(--serif);font-size:34px;letter-spacing:.14em;margin-bottom:16px}
+.site-loader-logo span{color:var(--gold)}
+.site-loader-line{width:180px;height:1px;margin:0 auto 14px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.site-loader-text{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a8a29a}
+
+/* =========================================================
+   HEADER
+========================================================= */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:78px;background:rgba(9,9,9,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(243,239,230,.08)}
+.site-nav{height:100%;max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:.09em;color:#fff;text-decoration:none;flex-shrink:0}
+.site-logo span{color:var(--gold)}
+.site-links{display:flex;align-items:center;gap:26px;color:#fff;font-size:13px;font-weight:600}
+.site-links a{color:#fff;text-decoration:none;opacity:.88;transition:.25s;white-space:nowrap}
+.site-links a:hover{color:#d5bd87;opacity:1}
+.site-links .site-cta{border:1px solid var(--gold);padding:10px 16px;opacity:1;white-space:nowrap}
+.site-links .site-cta:hover{background:var(--gold);color:#0a0a09}
+.site-menu{display:none;width:44px;height:44px;padding:8px;border:0;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;gap:5px}
+.site-menu span{display:block;width:24px;height:2px;margin-left:auto;background:#fff;transition:.25s}
+.site-menu.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-menu.open span:nth-child(2){opacity:0}
+.site-menu.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.site-mobile-menu{display:none;position:absolute;top:78px;left:0;right:0;background:rgba(9,9,9,.98);border-top:1px solid rgba(243,239,230,.1);box-shadow:0 18px 35px rgba(0,0,0,.4);padding:8px 15px 16px}
+.site-mobile-menu.open{display:block}
+.site-mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:16px 4px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(243,239,230,.1);font-size:14px;font-weight:600}
+.site-mobile-menu a span{color:var(--gold)}
+.site-mobile-menu .site-mobile-cta{margin-top:8px;padding:14px 16px;background:var(--gold);border:0;color:#0a0a09;justify-content:center;border-bottom:0;font-weight:700}
+
+/* =========================================================
+   INFO HEAD
+========================================================= */
+.info-head{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:55px;
+}
+.info-head h2{
+  font-family:var(--serif);
+  font-size:clamp(38px,4.6vw,64px);
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-.04em;
+  margin:0;
+}
+.info-head h2 em{font-style:normal;color:var(--gold)}
+.info-head p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+  margin:0;
+}
+
+/* =========================================================
+   FAQ LIST
+========================================================= */
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+
+.faq-item{
+  background:var(--panel);
+  transition:.3s;
+}
+.faq-item[open]{
+  background:#1a1a18;
+}
+
+.faq-item summary{
+  list-style:none;
+  cursor:pointer;
+  padding:26px 60px 26px 30px;
+  position:relative;
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:500;
+  color:var(--cream);
+  transition:.25s;
+  line-height:1.35;
+  user-select:none;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::marker{content:""}
+
+.faq-item summary:hover{color:var(--gold)}
+
+/* Plus / minus icon */
+.faq-item summary::after{
+  content:"+";
+  position:absolute;
+  right:30px;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:var(--sans);
+  font-size:24px;
+  font-weight:300;
+  color:var(--gold);
+  line-height:1;
+  transition:.3s ease;
+}
+.faq-item[open] summary::after{
+  content:"−";
+  transform:translateY(-50%) rotate(180deg);
+}
+
+.faq-answer{
+  padding:0 30px 28px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.85;
+  max-width:900px;
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.site-footer{background:#0b0b0b;color:#fff;border-top:1px solid rgba(243,239,230,.1)}
+.site-footer-inner{width:min(var(--max),calc(100% - 48px));margin:0 auto}
+.site-footer-topline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:22px 0;border-bottom:1px solid rgba(243,239,230,.1);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8c8880}
+.site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:40px;padding:55px 0 45px}
+.site-footer-logo{font-family:var(--serif);font-size:32px;letter-spacing:.08em;margin-bottom:16px}
+.site-footer-logo span{color:var(--gold)}
+.site-footer-description{color:#9c9c9c;line-height:1.8;max-width:420px;font-size:14px;margin:0 0 20px}
+.site-footer-cta{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--gold);border-bottom:1px solid rgba(198,166,109,.4);padding-bottom:4px;transition:.25s;text-decoration:none}
+.site-footer-cta:hover{color:#fff;border-color:#fff}
+.site-footer-heading{color:var(--gold);text-transform:uppercase;letter-spacing:.15em;font-size:11px;font-weight:700;margin-bottom:18px}
+.site-footer-links{display:flex;flex-direction:column;gap:12px}
+.site-footer-links a{color:#d5d5d5;font-size:14px;transition:.25s;text-decoration:none}
+.site-footer-links a:hover{color:#fff;transform:translateX(4px)}
+.site-footer-contact-pro{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.site-footer-contact-pro a{display:flex;flex-direction:column;gap:2px;color:#d8d8d8;font-size:14px;transition:.25s;text-decoration:none}
+.site-footer-contact-pro a:hover{color:#fff}
+.site-footer-contact-pro small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.site-footer-bottom{border-top:1px solid rgba(243,239,230,.1);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;color:#7d7d7d;font-size:13px}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media(max-width:900px){
+  .site-links{display:none}
+  .site-menu{display:flex}
+  .info-head{grid-template-columns:1fr;gap:24px}
+  .site-footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:600px){
+  .container,.site-footer-inner{width:calc(100% - 30px)}
+  .site-nav{padding:0 15px}
+  .site-logo{font-size:22px}
+  .section{padding:80px 0}
+  .info-head h2{font-size:32px}
+  .faq-item summary{padding:22px 50px 22px 22px;font-size:17px}
+  .faq-item summary::after{right:22px;font-size:22px}
+  .faq-answer{padding:0 22px 24px;font-size:13px}
+  .site-footer-grid{grid-template-columns:1fr;padding:55px 0 35px;gap:28px}
+  .site-footer-bottom{flex-direction:column;text-align:center}
+  .site-footer-topline{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body data-product="Custom Clothing &amp; Uniforms">
+
+<!-- =====================================================
+     SITE LOADER
+===================================================== -->
+<div class="site-loader" id="siteLoader" aria-hidden="true">
+  <div class="site-loader-inner">
+    <div class="site-loader-logo">LUCH<span>I</span>FER</div>
+    <div class="site-loader-line"></div>
+    <div class="site-loader-text">Custom Clothing &amp; Uniforms</div>
+  </div>
+</div>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+<header class="site-header" id="siteHeader">
+  <div class="site-nav">
+    <a href="index.html" class="site-logo">LUCH<span>I</span>FER</a>
+
+    <nav class="site-links" id="siteLinks" aria-label="Main navigation">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="products.html" data-page="products.html">Products</a>
+      <a href="quality.html" data-page="quality.html">Quality</a>
+      <a href="industries.html" data-page="industries.html">Industries</a>
+      <a href="about.html" data-page="about.html">About</a>
+      <a href="career.html" data-page="career.html">Vision</a>
+      <a href="#" data-whatsapp-product class="site-cta">Send Requirement</a>
+    </nav>
+
+    <button class="site-menu" id="siteMenu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteMobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="site-mobile-menu" id="siteMobileMenu">
+    <a href="index.html">Home <span>→</span></a>
+    <a href="products.html">Products <span>→</span></a>
+    <a href="quality.html">Quality <span>→</span></a>
+    <a href="industries.html">Industries <span>→</span></a>
+    <a href="about.html">About <span>→</span></a>
+    <a href="career.html">Vision <span>→</span></a>
+    <a href="#" data-whatsapp-product class="site-mobile-cta">Send Requirement</a>
+  </div>
+</header>
+
+
+<main>
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+<section class="section" style="padding-top:140px;">
+  <div class="container">
+
+    <div class="info-head reveal">
+      <div>
+        <div class="eyebrow">01 — FAQ</div>
+        <h2>Questions buyers usually ask <em>before ordering.</em></h2>
+      </div>
+      <p>These answers explain how Luchifer approaches custom uniform requirements. Product-specific commercial terms are confirmed in the quotation.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <details class="faq-item reveal">
+        <summary>Do you make completely custom uniforms?</summary>
+        <div class="faq-answer">Yes. Product choice, fabric, colour, fit, branding, trims, size range and department combinations can be discussed around the requirement.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can I send a reference image or existing garment?</summary>
+        <div class="faq-answer">Yes. A reference image, sketch or existing garment can help communicate the intended fit, colour, construction and branding direction.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can different departments have different uniforms?</summary>
+        <div class="faq-answer">Yes. A single organisation can use different garments, colours or details for front office, service, kitchen, housekeeping, operations or other departments while keeping one brand system.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Do you provide samples?</summary>
+        <div class="faq-answer">Sample development can be discussed before bulk production. The exact sample process, cost and timeline depend on the product and requirement and are confirmed in the quotation.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>How is pricing decided?</summary>
+        <div class="faq-answer">Custom pricing depends on the product, fabric, construction, branding method, quantity, size mix and delivery requirement. The final commercial quote is prepared after the requirement is understood.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can I reorder later?</summary>
+        <div class="faq-answer">Yes, reorders can be discussed using the previously approved product details so the new requirement can follow the same specification as closely as practical.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can you add our logo and employee details?</summary>
+        <div class="faq-answer">Logo embroidery, printing, labels and other identification details can be discussed. Names or role-wise identification depend on the product and production method.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Do you provide delivery across India?</summary>
+        <div class="faq-answer">Delivery requirements can be discussed for destinations across India. The quotation should confirm the destination, expected timeline and applicable delivery terms.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What about protective workwear?</summary>
+        <div class="faq-answer">For industrial requirements, the garment specification should be based on the actual hazard and required certified performance. Any applicable standard or certification must be specified and confirmed before production.</div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can I request a complete uniform programme?</summary>
+        <div class="faq-answer">Yes. You can send the requirement for multiple departments or multiple garment types together, and the programme can be planned as one coordinated requirement.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 <footer class="site-footer">
   <div class="site-footer-inner">
+
     <div class="site-footer-topline">
       <span>LUCHIFER / CUSTOM CLOTHING &amp; UNIFORMS</span>
       <span>Made around your requirement.</span>
     </div>
+
     <div class="site-footer-grid site-footer-grid-pro">
       <div class="site-footer-brand">
         <div class="site-footer-logo">LUCH<span>I</span>FER</div>
         <p class="site-footer-description">Professional uniforms, workwear and custom clothing developed around your business — from fabric and fit to branding, production and delivery.</p>
         <a class="site-footer-cta" href="contact.html">Send Your Requirement <span>→</span></a>
       </div>
+
       <div>
         <div class="site-footer-heading">Explore</div>
         <div class="site-footer-links">
@@ -26,17 +369,19 @@
           <a href="career.html">Vision</a>
         </div>
       </div>
+
       <div>
         <div class="site-footer-heading">Products</div>
         <div class="site-footer-links">
           <a href="corporate-uniform.html">Corporate Uniform</a>
           <a href="cafe-restaurant.html">Café &amp; Restaurant</a>
-          <a href="chef-uniform.html">Chef Uniform</a>
+          <a href="school-uniform.html">School Uniform</a>
           <a href="hotel-uniform.html">Hotel Uniform</a>
           <a href="industrial-workwear.html">Industrial Workwear</a>
           <a href="delivery-staff-wear.html">Delivery Staff Wear</a>
         </div>
       </div>
+
       <div>
         <div class="site-footer-heading">Resources &amp; Contact</div>
         <div class="site-footer-links">
@@ -45,16 +390,125 @@
           <a href="policies.html">Policies</a>
           <a href="care-size.html">Care &amp; Size Guide</a>
         </div>
+
         <div class="site-footer-contact-pro">
-          <a href="https://wa.me/917235851276" target="_blank" rel="noopener"><small>WhatsApp</small><span>+91 72358 51276</span></a>
-          <a href="mailto:gauravyadavindia01@gmail.com"><small>Email</small><span>gauravyadavindia01@gmail.com</span></a>
+          <a href="https://wa.me/917704810716?text=Hello%20Luchifer%2C%20I%20want%20to%20discuss%20my%20uniform%20requirement.%20Please%20share%20details." target="_blank" rel="noopener">
+            <small>WhatsApp</small>
+            <span>+91 77048 10716</span>
+          </a>
+          <a href="mailto:Krishnayadavindia01@gmail.com?subject=Uniform%20Requirement%20Enquiry&body=Hello%20Luchifer%2C%0A%0AI%20want%20to%20discuss%20my%20uniform%20requirement.%20Please%20share%20details.%0A%0AThanks.">
+            <small>Email</small>
+            <span>Krishnayadavindia01@gmail.com</span>
+          </a>
         </div>
       </div>
     </div>
+
     <div class="site-footer-bottom site-footer-bottom-pro">
-      <span>© 2026 Luchifer. All rights reserved.</span>
+      <span>© 2025 Luchifer. All rights reserved.</span>
       <span>Custom Clothing · Uniforms · Workwear</span>
       <span>Pan India Requirement Support</span>
     </div>
+
   </div>
-</footer><script src="script.js"></script></body></html>
+</footer>
+
+
+<!-- =====================================================
+     SITE JAVASCRIPT
+===================================================== -->
+<script>
+/* ---- Loader hide ---- */
+(function(){
+  var loader = document.getElementById('siteLoader');
+  if(!loader) return;
+  function hide(){
+    loader.classList.add('hidden');
+    setTimeout(function(){ loader.style.display = 'none'; }, 600);
+  }
+  if(document.readyState === 'complete'){ setTimeout(hide, 400); }
+  else { window.addEventListener('load', function(){ setTimeout(hide, 400); }); }
+  setTimeout(hide, 4000);
+})();
+
+/* ---- Mobile menu toggle ---- */
+(function(){
+  var btn = document.getElementById('siteMenu');
+  var menu = document.getElementById('siteMobileMenu');
+  if(!btn || !menu) return;
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  document.addEventListener('click', function(e){
+    if(!menu.classList.contains('open')) return;
+    if(btn.contains(e.target) || menu.contains(e.target)) return;
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  });
+
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+
+/* ---- Reveal on scroll ---- */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('show'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ---- Accordion: only one FAQ open at a time (optional) ---- */
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    item.addEventListener('toggle', function(){
+      if(item.open){
+        items.forEach(function(other){
+          if(other !== item && other.open) other.open = false;
+        });
+      }
+    });
+  });
+})();
+
+/* ---- WhatsApp product links ---- */
+(function(){
+  var product = document.body.getAttribute('data-product') || 'Luchifer';
+  var phone = '917704810716';
+  var msg = encodeURIComponent(
+    'Hello Luchifer, I want to discuss a requirement for: ' + product +
+    '. Please share details about fabric, fit, branding, quantity and pricing.'
+  );
+  var url = 'https://wa.me/' + phone + '?text=' + msg;
+
+  document.querySelectorAll('[data-whatsapp-product]').forEach(function(a){
+    a.setAttribute('href', url);
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener');
+  });
+})();
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
