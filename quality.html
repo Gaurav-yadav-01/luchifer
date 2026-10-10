@@ -46,8 +46,9 @@ img{display:block;width:100%}
 /* =========================================================
    LOADER
 ========================================================= */
-.site-loader{position:fixed;inset:0;z-index:9999;background:#0d0d0d;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
-.site-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.site-loader{position:fixed;inset:0;z-index:99999;background:#0d0d0d;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
+.site-loader.hidden,
+.site-loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
 .site-loader-inner{text-align:center;color:#fff}
 .site-loader-logo{font-family:var(--serif);font-size:34px;letter-spacing:.14em;margin-bottom:16px}
 .site-loader-logo span{color:var(--gold)}
@@ -71,7 +72,7 @@ img{display:block;width:100%}
 .site-menu.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .site-menu.open span:nth-child(2){opacity:0}
 .site-menu.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.site-mobile-menu{display:none;position:absolute;top:78px;left:0;right:0;background:rgba(9,9,9,.98);border-top:1px solid rgba(243,239,230,.1);box-shadow:0 18px 35px rgba(0,0,0,.4);padding:8px 15px 16px}
+.site-mobile-menu{display:none;position:absolute;top:78px;left:0;right:0;z-index:1001;background:rgba(9,9,9,.98);border-top:1px solid rgba(243,239,230,.1);box-shadow:0 18px 35px rgba(0,0,0,.4);padding:8px 15px 16px}
 .site-mobile-menu.open{display:block}
 .site-mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:16px 4px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(243,239,230,.1);font-size:14px;font-weight:600}
 .site-mobile-menu a span{color:var(--gold)}
@@ -289,7 +290,8 @@ img{display:block;width:100%}
    REVEAL
 ========================================================= */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
-.reveal.show{opacity:1;transform:none}
+.reveal.show,
+.reveal.visible{opacity:1;transform:none}
 
 /* =========================================================
    FOOTER
@@ -616,68 +618,9 @@ img{display:block;width:100%}
 
 <!-- =====================================================
      SITE JAVASCRIPT
+     (single source of truth — no inline JS)
 ===================================================== -->
-<script>
-/* ---- Loader hide ---- */
-(function(){
-  var loader = document.getElementById('siteLoader');
-  if(!loader) return;
-  function hide(){
-    loader.classList.add('hidden');
-    setTimeout(function(){ loader.style.display = 'none'; }, 600);
-  }
-  if(document.readyState === 'complete'){ setTimeout(hide, 400); }
-  else { window.addEventListener('load', function(){ setTimeout(hide, 400); }); }
-  setTimeout(hide, 4000);
-})();
-
-/* ---- Mobile menu toggle ---- */
-(function(){
-  var btn = document.getElementById('siteMenu');
-  var menu = document.getElementById('siteMobileMenu');
-  if(!btn || !menu) return;
-
-  btn.addEventListener('click', function(e){
-    e.stopPropagation();
-    var open = menu.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-
-  document.addEventListener('click', function(e){
-    if(!menu.classList.contains('open')) return;
-    if(btn.contains(e.target) || menu.contains(e.target)) return;
-    menu.classList.remove('open');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded','false');
-  });
-
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      menu.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-    });
-  });
-})();
-
-/* ---- Reveal on scroll ---- */
-(function(){
-  var els = document.querySelectorAll('.reveal');
-  if(!els.length) return;
-  if(!('IntersectionObserver' in window)){
-    els.forEach(function(el){ el.classList.add('show'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
-    });
-  }, {threshold:.12});
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
-
 <script src="script.js"></script>
+
 </body>
 </html>
