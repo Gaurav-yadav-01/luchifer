@@ -12,227 +12,50 @@
 <link rel="stylesheet" href="shared.css">
 
 <style>
-/* =========================================================
-   HEADER + MOBILE MENU FIX
-========================================================= */
-
-body{
-  padding-top:78px;
-}
-
-.site-header{
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:1000;
-  height:78px;
-  background:rgba(21,21,21,.92);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.site-nav{
-  height:100%;
-  max-width:1600px;
-  margin:0 auto;
-  padding:0 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.site-logo{
-  font-family:"Playfair Display",serif;
-  font-size:26px;
-  font-weight:600;
-  letter-spacing:.09em;
-  color:#fff;
-  text-decoration:none;
-  flex-shrink:0;
-}
-.site-logo span{color:#d1b071;}
-
-.site-links{
-  display:flex;
-  align-items:center;
-  gap:26px;
-  color:#fff;
-  font-size:13px;
-  font-weight:600;
-}
-.site-links a{
-  color:#fff;
-  text-decoration:none;
-  opacity:.88;
-  transition:.25s;
-  white-space:nowrap;
-}
-.site-links a:hover{color:#d5bd87;opacity:1;}
-.site-links .site-cta{
-  border:1px solid #cdb47c;
-  padding:10px 16px;
-  opacity:1;
-  white-space:nowrap;
-}
-.site-links .site-cta:hover{background:#b89a61;color:#fff;}
-
-.site-menu{
-  display:none;
-  width:44px;height:44px;
-  padding:8px;
-  border:0;
-  background:transparent;
-  cursor:pointer;
-  flex-direction:column;
-  justify-content:center;
-  gap:5px;
-}
-.site-menu span{
-  display:block;
-  width:24px;height:2px;
-  margin-left:auto;
-  background:#fff;
-  transition:.25s;
-}
-.site-menu.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.site-menu.open span:nth-child(2){opacity:0;}
-.site-menu.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
-.site-mobile-menu{
-  display:none;
-  position:absolute;
-  top:78px;left:0;right:0;
-  background:rgba(21,21,21,.98);
-  border-top:1px solid rgba(255,255,255,.10);
-  box-shadow:0 18px 35px rgba(0,0,0,.22);
-  padding:8px 15px 16px;
-}
-.site-mobile-menu.open{display:block;}
-.site-mobile-menu a{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 4px;
-  color:#fff;
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,.10);
-  font-size:14px;
-  font-weight:600;
-}
-.site-mobile-menu a span{color:#d1b071;}
-.site-mobile-menu .site-mobile-cta{
-  margin-top:8px;
-  padding:14px 16px;
-  background:#b89a61;
-  border:0;
-  color:#fff;
-  justify-content:center;
-  border-bottom:0;
-}
-
-/* -------- Loader -------- */
-.site-loader{
-  position:fixed;inset:0;z-index:9999;
-  background:#0d0d0d;
-  display:flex;align-items:center;justify-content:center;
-  transition:opacity .5s ease, visibility .5s ease;
-}
-.site-loader.hidden{opacity:0;visibility:hidden;pointer-events:none;}
-.site-loader-inner{text-align:center;color:#fff;}
-.site-loader-logo{
-  font-family:"Playfair Display",serif;
-  font-size:34px;letter-spacing:.14em;margin-bottom:16px;
-}
-.site-loader-logo span{color:#b89a61;}
-.site-loader-line{
-  width:180px;height:1px;margin:0 auto 14px;
-  background:linear-gradient(90deg,transparent,#b89a61,transparent);
-}
-.site-loader-text{
-  font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a8a29a;
-}
-
-/* =========================================================
-   STATS SECTION — rebuilt with proper flow
-========================================================= */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:#ded8cc;
-  border:1px solid #ded8cc;
-  margin-top:70px;
-}
-.stat{
-  background:#fff;
-  padding:32px 28px;
-  min-height:180px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-}
-.stat strong{
-  font-family:"Playfair Display",serif;
-  font-size:44px;
-  font-weight:600;
-  color:#b89a61;
-  line-height:1;
-  display:block;
-  margin-bottom:20px;
-}
-.stat span{
-  display:block;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-weight:700;
-  color:#151515;
-  margin-bottom:10px;
-}
-.stat p{
-  font-size:13px;
-  line-height:1.65;
-  color:#6d6962;
-  margin:0;
-}
-
-@media (max-width:900px){
-  .site-links{display:none;}
-  .site-menu{display:flex;}
-  .stats{grid-template-columns:1fr;}
-  .stat{min-height:auto;padding:26px 22px;}
-  .stat strong{font-size:36px;margin-bottom:14px;}
-}
-
-@media (max-width:600px){
-  .site-nav{padding:0 15px;}
-  .site-logo{font-size:22px;}
-  .stat strong{font-size:32px;}
-}
+body{padding-top:78px}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:78px;background:rgba(21,21,21,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+.site-nav{height:100%;max-width:1600px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{font-family:"Playfair Display",serif;font-size:26px;font-weight:600;letter-spacing:.09em;color:#fff;text-decoration:none;flex-shrink:0}
+.site-logo span{color:#d1b071}
+.site-links{display:flex;align-items:center;gap:26px;color:#fff;font-size:13px;font-weight:600}
+.site-links a{color:#fff;text-decoration:none;opacity:.88;transition:.25s;white-space:nowrap}
+.site-links a:hover{color:#d5bd87;opacity:1}
+.site-links .site-cta{border:1px solid #cdb47c;padding:10px 16px;opacity:1;white-space:nowrap}
+.site-links .site-cta:hover{background:#b89a61;color:#fff}
+.site-menu{display:none;width:44px;height:44px;padding:8px;border:0;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;gap:5px}
+.site-menu span{display:block;width:24px;height:2px;margin-left:auto;background:#fff;transition:.25s}
+.site-menu.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-menu.open span:nth-child(2){opacity:0}
+.site-menu.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.site-mobile-menu{display:none;position:absolute;top:78px;left:0;right:0;z-index:1001;background:rgba(21,21,21,.98);border-top:1px solid rgba(255,255,255,.10);box-shadow:0 18px 35px rgba(0,0,0,.22);padding:8px 15px 16px}
+.site-mobile-menu.open{display:block}
+.site-mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:16px 4px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.10);font-size:14px;font-weight:600}
+.site-mobile-menu a span{color:#d1b071}
+.site-mobile-menu .site-mobile-cta{margin-top:8px;padding:14px 16px;background:#b89a61;border:0;color:#fff;justify-content:center;border-bottom:0}
+.site-loader{position:fixed;inset:0;z-index:99999;background:#0d0d0d;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
+.site-loader.hidden,
+.site-loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.site-loader-inner{text-align:center;color:#fff}
+.site-loader-logo{font-family:"Playfair Display",serif;font-size:34px;letter-spacing:.14em;margin-bottom:16px}
+.site-loader-logo span{color:#b89a61}
+.site-loader-line{width:180px;height:1px;margin:0 auto 14px;background:linear-gradient(90deg,transparent,#b89a61,transparent)}
+.site-loader-text{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a8a29a}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ded8cc;border:1px solid #ded8cc;margin-top:70px}
+.stat{background:#fff;padding:32px 28px;min-height:180px;display:flex;flex-direction:column;justify-content:flex-start}
+.stat strong{font-family:"Playfair Display",serif;font-size:44px;font-weight:600;color:#b89a61;line-height:1;display:block;margin-bottom:20px}
+.stat span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:700;color:#151515;margin-bottom:10px}
+.stat p{font-size:13px;line-height:1.65;color:#6d6962;margin:0}
+@media(max-width:900px){.site-links{display:none}.site-menu{display:flex}.stats{grid-template-columns:1fr}.stat{min-height:auto;padding:26px 22px}.stat strong{font-size:36px;margin-bottom:14px}}
+@media(max-width:600px){.site-nav{padding:0 15px}.site-logo{font-size:22px}.stat strong{font-size:32px}}
 </style>
 </head>
 <body>
 
-<!-- =====================================================
-     SITE LOADER
-===================================================== -->
-<div class="site-loader" id="siteLoader" aria-hidden="true">
-  <div class="site-loader-inner">
-    <div class="site-loader-logo">LUCH<span>I</span>FER</div>
-    <div class="site-loader-line"></div>
-    <div class="site-loader-text">Custom Clothing &amp; Uniforms</div>
-  </div>
-</div>
+<div class="site-loader" id="siteLoader" aria-hidden="true"><div class="site-loader-inner"><div class="site-loader-logo">LUCH<span>I</span>FER</div><div class="site-loader-line"></div><div class="site-loader-text">Custom Clothing &amp; Uniforms</div></div></div>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 <header class="site-header" id="siteHeader">
   <div class="site-nav">
     <a href="index.html" class="site-logo">LUCH<span>I</span>FER</a>
-
     <nav class="site-links" id="siteLinks" aria-label="Main navigation">
       <a href="index.html" data-page="index.html">Home</a>
       <a href="products.html" data-page="products.html">Products</a>
@@ -242,12 +65,8 @@ body{
       <a href="career.html" data-page="career.html">Vision</a>
       <a href="contact.html" class="site-cta">Send Requirement</a>
     </nav>
-
-    <button class="site-menu" id="siteMenu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteMobileMenu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="site-menu" id="siteMenu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteMobileMenu"><span></span><span></span><span></span></button>
   </div>
-
   <div class="site-mobile-menu" id="siteMobileMenu">
     <a href="index.html">Home <span>→</span></a>
     <a href="products.html">Products <span>→</span></a>
@@ -259,26 +78,11 @@ body{
   </div>
 </header>
 
-
 <main>
-
-<!-- =====================================================
-     PAGE HERO
-===================================================== -->
 <section class="page-hero" style="background-image:linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.55) 52%,rgba(0,0,0,.18)),url('https://images.pexels.com/photos/28426637/pexels-photo-28426637.jpeg?auto=compress&cs=tinysrgb&w=2200')">
-  <div class="container">
-    <div class="page-hero-content reveal">
-      <div class="hero-line">About Luchifer</div>
-      <h1>Built around your <em>requirement.</em></h1>
-      <p>Custom clothing is not one-size-fits-all. We focus on the fabric, fit, branding and finish that your team actually needs.</p>
-    </div>
-  </div>
+  <div class="container"><div class="page-hero-content reveal"><div class="hero-line">About Luchifer</div><h1>Built around your <em>requirement.</em></h1><p>Custom clothing is not one-size-fits-all. We focus on the fabric, fit, branding and finish that your team actually needs.</p></div></div>
 </section>
 
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
 <section class="section">
   <div class="container about-layout">
     <div class="about-image reveal"></div>
@@ -291,187 +95,36 @@ body{
       <a href="contact.html" class="btn btn-primary" style="width:max-content;margin-top:35px">Start a Conversation</a>
     </div>
   </div>
-
   <div class="container">
     <div class="stats reveal">
-
-      <div class="stat">
-        <strong>01</strong>
-        <span>Requirement First</span>
-        <p>We first understand your exact requirement — product, quantity, fabric, colour, branding and the way your team will use it.</p>
-      </div>
-
-      <div class="stat">
-        <strong>02</strong>
-        <span>Sample Approval</span>
-        <p>Based on your requirement, we develop a sample and share it with you. Only after your approval does the order move ahead.</p>
-      </div>
-
-      <div class="stat">
-        <strong>03</strong>
-        <span>On-Time Delivery</span>
-        <p>Once approved, we produce your full order in the committed quantity and deliver it within the promised time — no delays.</p>
-      </div>
-
+      <div class="stat"><strong>01</strong><span>Requirement First</span><p>We first understand your exact requirement — product, quantity, fabric, colour, branding and the way your team will use it.</p></div>
+      <div class="stat"><strong>02</strong><span>Sample Approval</span><p>Based on your requirement, we develop a sample and share it with you. Only after your approval does the order move ahead.</p></div>
+      <div class="stat"><strong>03</strong><span>On-Time Delivery</span><p>Once approved, we produce your full order in the committed quantity and deliver it within the promised time — no delays.</p></div>
     </div>
   </div>
 </section>
 
-
-<!-- =====================================================
-     DARK PANEL
-===================================================== -->
 <section class="section dark-panel">
   <div class="container split">
-    <div class="reveal">
-      <div class="eyebrow">The Luchifer Standard</div>
-      <h2 class="section-title">Clothing that represents your business.</h2>
-    </div>
-    <div class="reveal">
-      <p class="section-description">A uniform is more than fabric and stitching. It becomes part of how your team is recognised. We create custom clothing that reflects your brand, your people and the standard you expect.</p>
-      <div class="page-actions">
-        <a href="products.html" class="btn btn-outline">Explore Products</a>
-        <a href="contact.html" class="btn btn-primary">Send Requirement</a>
-      </div>
-    </div>
+    <div class="reveal"><div class="eyebrow">The Luchifer Standard</div><h2 class="section-title">Clothing that represents your business.</h2></div>
+    <div class="reveal"><p class="section-description">A uniform is more than fabric and stitching. It becomes part of how your team is recognised. We create custom clothing that reflects your brand, your people and the standard you expect.</p><div class="page-actions"><a href="products.html" class="btn btn-outline">Explore Products</a><a href="contact.html" class="btn btn-primary">Send Requirement</a></div></div>
   </div>
 </section>
-
 </main>
 
-
-<!-- =====================================================
-     PREMIUM FOOTER
-===================================================== -->
 <footer class="site-footer">
   <div class="site-footer-inner">
-
-    <div class="site-footer-topline">
-      <span>LUCHIFER / CUSTOM CLOTHING &amp; UNIFORMS</span>
-      <span>Made around your requirement.</span>
-    </div>
-
+    <div class="site-footer-topline"><span>LUCHIFER / CUSTOM CLOTHING &amp; UNIFORMS</span><span>Made around your requirement.</span></div>
     <div class="site-footer-grid site-footer-grid-pro">
-
-      <div class="site-footer-brand">
-        <div class="site-footer-logo">LUCH<span>I</span>FER</div>
-        <p class="site-footer-description">Professional uniforms, workwear and custom clothing developed around your business — from fabric and fit to branding, production and delivery.</p>
-        <a class="site-footer-cta" href="contact.html">Send Your Requirement <span>→</span></a>
-      </div>
-
-      <div>
-        <div class="site-footer-heading">Explore</div>
-        <div class="site-footer-links">
-          <a href="index.html">Home</a>
-          <a href="products.html">Products</a>
-          <a href="quality.html">Quality</a>
-          <a href="industries.html">Industries</a>
-          <a href="about.html">About</a>
-          <a href="career.html">Vision</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="site-footer-heading">Products</div>
-        <div class="site-footer-links">
-          <a href="corporate-uniform.html">Corporate Uniform</a>
-          <a href="cafe-restaurant.html">Café &amp; Restaurant</a>
-          <a href="school-uniform.html">School Uniform</a>
-          <a href="hotel-uniform.html">Hotel Uniform</a>
-          <a href="industrial-workwear.html">Industrial Workwear</a>
-          <a href="delivery-staff-wear.html">Delivery Staff Wear</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="site-footer-heading">Resources &amp; Contact</div>
-        <div class="site-footer-links">
-          <a href="how-it-works.html">How It Works</a>
-          <a href="faq.html">FAQ</a>
-          <a href="policies.html">Policies</a>
-          <a href="care-size.html">Care &amp; Size Guide</a>
-        </div>
-
-        <div class="site-footer-contact-pro">
-          <a href="https://wa.me/917704810716?text=Hello%20Luchifer%2C%20I%20want%20to%20discuss%20my%20uniform%20requirement.%20Please%20share%20details." target="_blank" rel="noopener">
-            <small>WhatsApp</small>
-            <span>+91 77048 10716</span>
-          </a>
-          <a href="mailto:Krishnayadavindia01@gmail.com?subject=Uniform%20Requirement%20Enquiry&body=Hello%20Luchifer%2C%0A%0AI%20want%20to%20discuss%20my%20uniform%20requirement.%20Please%20share%20details.%0A%0AThanks.">
-            <small>Email</small>
-            <span>Krishnayadavindia01@gmail.com</span>
-          </a>
-        </div>
-      </div>
-
+      <div class="site-footer-brand"><div class="site-footer-logo">LUCH<span>I</span>FER</div><p class="site-footer-description">Professional uniforms, workwear and custom clothing developed around your business — from fabric and fit to branding, production and delivery.</p><a class="site-footer-cta" href="contact.html">Send Your Requirement <span>→</span></a></div>
+      <div><div class="site-footer-heading">Explore</div><div class="site-footer-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="quality.html">Quality</a><a href="industries.html">Industries</a><a href="about.html">About</a><a href="career.html">Vision</a></div></div>
+      <div><div class="site-footer-heading">Products</div><div class="site-footer-links"><a href="corporate-uniform.html">Corporate Uniform</a><a href="cafe-restaurant.html">Café &amp; Restaurant</a><a href="school-uniform.html">School Uniform</a><a href="hotel-uniform.html">Hotel Uniform</a><a href="industrial-workwear.html">Industrial Workwear</a><a href="delivery-staff-wear.html">Delivery Staff Wear</a></div></div>
+      <div><div class="site-footer-heading">Resources &amp; Contact</div><div class="site-footer-links"><a href="how-it-works.html">How It Works</a><a href="faq.html">FAQ</a><a href="policies.html">Policies</a><a href="care-size.html">Care &amp; Size Guide</a></div>
+      <div class="site-footer-contact-pro"><a href="https://wa.me/917704810716?text=Hello%20Luchifer%2C%20I%20want%20to%20discuss%20my%20uniform%20requirement.%20Please%20share%20details." target="_blank" rel="noopener"><small>WhatsApp</small><span>+91 77048 10716</span></a><a href="mailto:Krishnayadavindia01@gmail.com?subject=Uniform%20Requirement%20Enquiry&body=Hello%20Luchifer%2C%0A%0AI%20want%20to%20discuss%20my%20uniform%20requirement.%20Please%20share%20details.%0A%0AThanks."><small>Email</small><span>Krishnayadavindia01@gmail.com</span></a></div></div>
     </div>
-
-    <div class="site-footer-bottom site-footer-bottom-pro">
-      <span>© 2025 Luchifer. All rights reserved.</span>
-      <span>Custom Clothing · Uniforms · Workwear</span>
-      <span>Pan India Requirement Support</span>
-    </div>
-
+    <div class="site-footer-bottom site-footer-bottom-pro"><span>© 2025 Luchifer. All rights reserved.</span><span>Custom Clothing · Uniforms · Workwear</span><span>Pan India Requirement Support</span></div>
   </div>
 </footer>
-
-
-<!-- =====================================================
-     SITE JAVASCRIPT
-===================================================== -->
-<script>
-/* ---------- Loader hide ---------- */
-(function () {
-  var loader = document.getElementById('siteLoader');
-  if (!loader) return;
-
-  function hideLoader() {
-    loader.classList.add('hidden');
-    setTimeout(function () { loader.style.display = 'none'; }, 600);
-  }
-
-  if (document.readyState === 'complete') {
-    setTimeout(hideLoader, 400);
-  } else {
-    window.addEventListener('load', function () {
-      setTimeout(hideLoader, 400);
-    });
-  }
-
-  setTimeout(hideLoader, 4000);
-})();
-
-
-/* ---------- Mobile menu toggle ---------- */
-(function () {
-  var btn = document.getElementById('siteMenu');
-  var menu = document.getElementById('siteMobileMenu');
-  if (!btn || !menu) return;
-
-  btn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    var open = menu.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!menu.classList.contains('open')) return;
-    if (btn.contains(e.target) || menu.contains(e.target)) return;
-    menu.classList.remove('open');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-  });
-
-  menu.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      menu.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-})();
-</script>
 
 <script src="script.js"></script>
 </body>
