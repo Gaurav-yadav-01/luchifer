@@ -48,6 +48,7 @@ html{
 
 body{
   margin:0;
+  padding-top:78px; /* space for fixed header */
   background:var(--paper);
   color:var(--black);
   font-family:"DM Sans",sans-serif;
@@ -92,15 +93,16 @@ button{
 .site-loader{
   position:fixed;
   inset:0;
-  z-index:9999;
+  z-index:99999;
   background:#0d0d0d;
   display:flex;
   align-items:center;
   justify-content:center;
-  transition:opacity .5s ease, visibility .5s ease;
+  transition:opacity .55s ease, visibility .55s ease;
 }
 
-.site-loader.hidden{
+.site-loader.hidden,
+.site-loader.is-hidden{
   opacity:0;
   visibility:hidden;
   pointer-events:none;
@@ -143,7 +145,7 @@ button{
 
 .site-header{
   position:fixed;
-  z-index:100;
+  z-index:1000;
   top:0;
   left:0;
   right:0;
@@ -151,6 +153,7 @@ button{
 
   background:rgba(21,21,21,.88);
   backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
 
   border-bottom:1px solid rgba(255,255,255,.10);
 }
@@ -163,6 +166,7 @@ button{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:20px;
 }
 
 .site-logo{
@@ -171,6 +175,8 @@ button{
   font-weight:600;
   letter-spacing:.09em;
   color:#fff;
+  flex-shrink:0;
+  white-space:nowrap;
 }
 
 .site-logo span{
@@ -194,6 +200,7 @@ button{
 .site-links a{
   opacity:.88;
   transition:.25s;
+  white-space:nowrap;
 }
 
 .site-links a:hover{
@@ -204,12 +211,13 @@ button{
 .site-cta{
   border:1px solid #cdb47c;
   padding:11px 16px;
-  opacity:1 !important;
+  opacity:1;
+  white-space:nowrap;
 }
 
 .site-cta:hover{
   background:var(--gold);
-  color:#fff !important;
+  color:#fff;
 }
 
 
@@ -274,6 +282,8 @@ button{
   left:0;
   right:0;
 
+  z-index:1001;
+
   background:rgba(21,21,21,.98);
 
   border-top:1px solid rgba(255,255,255,.10);
@@ -318,6 +328,7 @@ button{
   color:#fff;
 
   border-bottom:0;
+  justify-content:center;
 }
 
 
@@ -464,6 +475,7 @@ button{
 .trust{
   background:#171717;
   color:#fff;
+  padding:0;
 }
 
 .trust-grid{
@@ -1183,7 +1195,7 @@ section{
     <div class="hero-copy">
 
       <div class="kicker">
-        Custom Clothing & Uniforms
+        Custom Clothing &amp; Uniforms
       </div>
 
       <h1>
@@ -1218,7 +1230,7 @@ section{
 
 <!-- TRUST -->
 
-<section class="trust" style="padding:0;">
+<section class="trust">
 
   <div class="wrap trust-grid">
 
@@ -1300,7 +1312,7 @@ section{
           >
         </div>
         <div class="product-body">
-          <h3>Café & Restaurant</h3>
+          <h3>Café &amp; Restaurant</h3>
           <p>Smart service wear built for hospitality environments.</p>
           <span class="view">View Product →</span>
         </div>
@@ -1420,7 +1432,7 @@ section{
           </div>
 
           <div class="point">
-            <b>Fit & Design</b>
+            <b>Fit &amp; Design</b>
             <span>Product details developed for your team and look.</span>
           </div>
 
@@ -1606,11 +1618,11 @@ section{
         </div>
 
         <div class="site-footer-contact-pro">
-          <a href="https://wa.me/917704810716" target="_blank" rel="noopener">
+          <a href="https://wa.me/917704810716?text=Hello%20Luchifer%2C%20I%20want%20to%20discuss%20my%20uniform%20requirement.%20Please%20share%20details." target="_blank" rel="noopener">
             <small>WhatsApp</small>
             <span>+91 77048 10716</span>
           </a>
-          <a href="mailto:Krishnayadavindia01@gmail.com">
+          <a href="mailto:Krishnayadavindia01@gmail.com?subject=Uniform%20Requirement%20Enquiry&body=Hello%20Luchifer%2C%0A%0AI%20want%20to%20discuss%20my%20uniform%20requirement.%20Please%20share%20details.%0A%0AThanks.">
             <small>Email</small>
             <span>Krishnayadavindia01@gmail.com</span>
           </a>
@@ -1620,7 +1632,7 @@ section{
     </div>
 
     <div class="site-footer-bottom site-footer-bottom-pro">
-      <span>© 2025 Luchifer. All rights reserved.</span>
+      <span>© 2026 Luchifer. All rights reserved.</span>
       <span>Custom Clothing · Uniforms · Workwear</span>
       <span>Pan India Requirement Support</span>
     </div>
@@ -1632,62 +1644,8 @@ section{
 
 <!-- =====================================================
      SITE JAVASCRIPT
+     (single source of truth — no inline JS)
 ===================================================== -->
-
-<script>
-/* ---------- Loader hide (fallback) ---------- */
-(function () {
-  var loader = document.getElementById('siteLoader');
-  if (!loader) return;
-
-  function hideLoader() {
-    loader.classList.add('hidden');
-    setTimeout(function () {
-      loader.style.display = 'none';
-    }, 600);
-  }
-
-  if (document.readyState === 'complete') {
-    setTimeout(hideLoader, 400);
-  } else {
-    window.addEventListener('load', function () {
-      setTimeout(hideLoader, 400);
-    });
-  }
-
-  setTimeout(hideLoader, 4000);
-})();
-
-
-/* ---------- Mobile menu toggle ---------- */
-(function () {
-  var btn = document.getElementById('siteMenu');
-  var menu = document.getElementById('siteMobileMenu');
-  if (!btn || !menu) return;
-
-  btn.addEventListener('click', function () {
-    var open = menu.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!menu.classList.contains('open')) return;
-    if (btn.contains(e.target) || menu.contains(e.target)) return;
-    menu.classList.remove('open');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-  });
-
-  menu.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      menu.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-})();
-</script>
 
 <script src="script.js"></script>
 
