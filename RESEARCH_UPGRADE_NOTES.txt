@@ -80,14 +80,14 @@ Important:
 
 
 KP House contact details (used consistently across all pages):
-- WhatsApp: +91 77048 10716
-- Email:    Krishnayadavindia01@gmail.com
+- WhatsApp: +91 92145 78049
+- Email:    kp.house9565@gmail.com
 - WhatsApp pre-filled message (footer):
     "Hello KP House, I want to discuss my uniform requirement.
      Please share details."
 - Email subject (footer): "Uniform Requirement Enquiry"
 - Form submission endpoint: FormSubmit.co (AJAX to
-  Krishnayadavindia01@gmail.com)
+  kp.house9565@gmail.com)
 
 
 Design & theme notes:
