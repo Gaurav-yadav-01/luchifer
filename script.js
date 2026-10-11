@@ -148,7 +148,7 @@
   if (productName) {
     const businessNumber = "917704810716";
     const productMessage =
-      "Hello Luchifer Team,\n\n" +
+      "Hello KP House Team,\n\n" +
       "I am interested in: " + productName + ".\n\n" +
       "Please share the available options, fabric choices, quantity guidance and quotation details.\n\n" +
       "Thank you.";
@@ -232,7 +232,7 @@
       const subject = form.querySelector('input[name="_subject"]');
       const replyTo = form.querySelector('input[name="_replyto"]');
       const urlField = form.querySelector('input[name="_url"]');
-      if (subject) subject.value = "New Luchifer Requirement — " + value("name");
+      if (subject) subject.value = "New KP House Requirement — " + value("name");
       if (replyTo) replyTo.value = email || "";
       if (urlField) urlField.value = window.location.href;
 
