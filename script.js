@@ -1,15 +1,11 @@
 (function(){
   "use strict";
 
-  /* =========================================================
-     LOADING SCREEN
-     Uses BOTH `hidden` and `is-hidden` classes for max compat
-  ========================================================= */
+  /* ===== LOADING SCREEN ===== */
   const loader = document.getElementById("siteLoader");
   const hideLoader = () => {
     if (!loader) return;
-    loader.classList.add("hidden");
-    loader.classList.add("is-hidden");
+    loader.classList.add("hidden", "is-hidden");
     setTimeout(() => { loader.style.display = "none"; }, 600);
   };
   if (document.readyState === "complete") hideLoader();
@@ -17,98 +13,51 @@
   setTimeout(hideLoader, 3500);
 
 
-  /* =========================================================
-     SHARED HEADER
-  ========================================================= */
+  /* ===== HEADER SCROLL ===== */
   const header = document.getElementById("siteHeader");
-  const menu = document.getElementById("siteMenu");
-  const links = document.getElementById("siteLinks");
-  const mobileMenu = document.getElementById("siteMobileMenu");
-
   if (header) {
     const updateHeader = () => header.classList.toggle("scrolled", window.scrollY > 30);
     updateHeader();
     window.addEventListener("scroll", updateHeader, {passive:true});
   }
 
-  /* =========================================================
-     MOBILE MENU — handles BOTH `open` (panel) and
-     `menu-open` (header) class conventions
-  ========================================================= */
+
+  /* ===== MOBILE MENU ===== */
+  const menu = document.getElementById("siteMenu");
+  const links = document.getElementById("siteLinks");
+  const mobileMenu = document.getElementById("siteMobileMenu");
+
   if (menu) {
+    const closeMenu = () => {
+      menu.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+      if (mobileMenu) mobileMenu.classList.remove("open");
+      if (header) header.classList.remove("menu-open");
+    };
+
     menu.addEventListener("click", () => {
       const isOpen = menu.classList.toggle("open");
       menu.setAttribute("aria-expanded", String(isOpen));
-      menu.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       if (mobileMenu) mobileMenu.classList.toggle("open", isOpen);
       if (header) header.classList.toggle("menu-open", isOpen);
     });
 
-    /* Close menu when a link inside the panel is clicked */
-    if (mobileMenu) {
-      mobileMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          menu.classList.remove("open");
-          menu.setAttribute("aria-expanded", "false");
-          menu.setAttribute("aria-label", "Open menu");
-          mobileMenu.classList.remove("open");
-          if (header) header.classList.remove("menu-open");
-        });
-      });
-    }
+    if (mobileMenu) mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+    if (links) links.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
 
-    /* Also close on link clicks inside desktop nav (harmless) */
-    if (links) {
-      links.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          menu.classList.remove("open");
-          menu.setAttribute("aria-expanded", "false");
-          menu.setAttribute("aria-label", "Open menu");
-          if (mobileMenu) mobileMenu.classList.remove("open");
-          if (header) header.classList.remove("menu-open");
-        });
-      });
-    }
-
-    /* Close on outside click */
     document.addEventListener("click", (e) => {
       if (!menu.classList.contains("open")) return;
-      if (menu.contains(e.target)) return;
-      if (mobileMenu && mobileMenu.contains(e.target)) return;
-      menu.classList.remove("open");
-      menu.setAttribute("aria-expanded", "false");
-      menu.setAttribute("aria-label", "Open menu");
-      if (mobileMenu) mobileMenu.classList.remove("open");
-      if (header) header.classList.remove("menu-open");
+      if (menu.contains(e.target) || (mobileMenu && mobileMenu.contains(e.target))) return;
+      closeMenu();
     });
 
-    /* Auto-close when resizing back to desktop */
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) {
-        menu.classList.remove("open");
-        menu.setAttribute("aria-expanded", "false");
-        if (mobileMenu) mobileMenu.classList.remove("open");
-        if (header) header.classList.remove("menu-open");
-      }
-    });
+    window.addEventListener("resize", () => { if (window.innerWidth > 900) closeMenu(); });
   }
 
 
-  /* =========================================================
-     MARK CURRENT PAGE IN NAV
-     (Chef removed, School added)
-  ========================================================= */
+  /* ===== ACTIVE NAV ===== */
   const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-
-  /* Any of these product pages should also highlight "Products" in nav */
-  const productPages = [
-    "corporate-uniform.html",
-    "cafe-restaurant.html",
-    "school-uniform.html",
-    "hotel-uniform.html",
-    "industrial-workwear.html",
-    "delivery-staff-wear.html"
-  ];
+  const productPages = ["corporate-uniform.html","cafe-restaurant.html","school-uniform.html","hotel-uniform.html","industrial-workwear.html","delivery-staff-wear.html"];
 
   document.querySelectorAll(".site-links a[data-page]").forEach(link => {
     const page = link.getAttribute("data-page");
@@ -119,9 +68,7 @@
   });
 
 
-  /* =========================================================
-     REVEAL ANIMATIONS
-  ========================================================= */
+  /* ===== REVEAL ANIMATIONS ===== */
   const revealItems = document.querySelectorAll(".reveal");
   if (revealItems.length) {
     if ("IntersectionObserver" in window) {
@@ -140,27 +87,17 @@
   }
 
 
-  /* =========================================================
-     PRODUCT-PAGE WHATSAPP CTA
-     Sets href + opens WhatsApp with product-specific message
-  ========================================================= */
+  /* ===== PRODUCT WHATSAPP CTA ===== */
   const productName = document.body.dataset.product;
   if (productName) {
     const businessNumber = "919214578049";
-    const productMessage =
-      "Hello KP House Team,\n\n" +
-      "I am interested in: " + productName + ".\n\n" +
-      "Please share the available options, fabric choices, quantity guidance and quotation details.\n\n" +
-      "Thank you.";
+    const productMessage = "Hello KP House Team,\n\nI am interested in: " + productName + ".\n\nPlease share the available options, fabric choices, quantity guidance and quotation details.\n\nThank you.";
     const productUrl = "https://wa.me/" + businessNumber + "?text=" + encodeURIComponent(productMessage);
 
     document.querySelectorAll("[data-whatsapp-product]").forEach(el => {
-      /* Set href so middle-click / right-click open also work */
       el.setAttribute("href", productUrl);
       el.setAttribute("target", "_blank");
       el.setAttribute("rel", "noopener");
-
-      /* On left click, navigate directly */
       el.addEventListener("click", event => {
         event.preventDefault();
         window.open(productUrl, "_blank", "noopener");
@@ -170,121 +107,230 @@
 
 
   /* =========================================================
-     REQUIREMENT FORM
-     Email field is OPTIONAL (matches Contact page HTML).
-     FormSubmit endpoint handles the actual send.
+     REQUIREMENT FORM — with validation + Web3Forms
   ========================================================= */
   const form = document.getElementById("requirementForm");
   const formMessage = document.getElementById("formMessage");
   const formArea = document.getElementById("requirementFormArea");
   const success = document.getElementById("requirementSuccess");
   const sendAnother = document.getElementById("sendAnother");
-  const submitFrame = document.getElementById("formSubmitTarget");
+  const submitBtn = document.getElementById("submitBtn");
 
+  /* ---- Phone: only digits allowed (auto-block) ---- */
+  const phoneInput = document.getElementById("phone");
+  if (phoneInput) {
+    phoneInput.addEventListener("input", (e) => {
+      /* Remove non-digits and limit to 10 */
+      let v = e.target.value.replace(/\D/g, "").slice(0, 10);
+      e.target.value = v;
+      /* Live validation */
+      if (v.length === 10) {
+        e.target.classList.remove("invalid");
+        document.getElementById("err-phone")?.classList.remove("show");
+      }
+    });
+
+    phoneInput.addEventListener("keypress", (e) => {
+      /* Only allow digits */
+      if (!/[0-9]/.test(e.key)) e.preventDefault();
+    });
+  }
+
+  /* ---- Email: live validation ---- */
+  const emailInput = document.getElementById("email");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (emailInput) {
+    emailInput.addEventListener("blur", () => {
+      const v = emailInput.value.trim();
+      if (v && !emailRegex.test(v)) {
+        emailInput.classList.add("invalid");
+        document.getElementById("err-email")?.classList.add("show");
+      } else {
+        emailInput.classList.remove("invalid");
+        document.getElementById("err-email")?.classList.remove("show");
+      }
+    });
+  }
+
+  /* ---- Helper: show/clear field error ---- */
+  function setFieldError(id, show, message) {
+    const input = document.getElementById(id);
+    const err = document.getElementById("err-" + id);
+    if (input) input.classList.toggle("invalid", show);
+    if (err) {
+      if (message) err.textContent = message;
+      err.classList.toggle("show", show);
+    }
+  }
+
+  /* ---- Clear error on input ---- */
+  ["name","brand","quantity","product","date","details"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("input", () => setFieldError(id, false));
+      el.addEventListener("change", () => setFieldError(id, false));
+    }
+  });
+
+  /* ---- Form submit ---- */
   if (form) {
     let submitting = false;
-    let submissionStarted = false;
 
-    form.addEventListener("submit", event => {
-      const value = id => document.getElementById(id)?.value?.trim() || "";
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-      /* Email is optional — not included in required list */
-      const requiredFields = [
-        ["name", "your name"],
-        ["phone", "WhatsApp number"],
-        ["quantity", "quantity"],
-        ["product", "product type"],
-        ["date", "required date"],
-        ["details", "your requirement"]
-      ];
+      const value = id => {
+        const el = document.getElementById(id);
+        return el && el.value ? el.value.trim() : "";
+      };
 
-      const missing = requiredFields.find(([id]) => !value(id));
-      const fileInput = document.getElementById("file");
-      const selectedFile = fileInput?.files?.[0] || null;
+      let valid = true;
+      let firstInvalid = null;
 
-      if (missing) {
-        event.preventDefault();
-        const field = document.getElementById(missing[0]);
-        if (field && typeof field.focus === "function") field.focus();
+      /* --- Name --- */
+      if (value("name").length < 2) {
+        setFieldError("name", true, "Please enter your name");
+        if (!firstInvalid) firstInvalid = "name";
+        valid = false;
+      } else setFieldError("name", false);
+
+      /* --- Phone: exactly 10 digits --- */
+      const phoneVal = value("phone");
+      if (!/^[0-9]{10}$/.test(phoneVal)) {
+        setFieldError("phone", true, "WhatsApp number must be exactly 10 digits");
+        if (!firstInvalid) firstInvalid = "phone";
+        valid = false;
+      } else setFieldError("phone", false);
+
+      /* --- Email (optional but validate if given) --- */
+      const emailVal = value("email");
+      if (emailVal && !emailRegex.test(emailVal)) {
+        setFieldError("email", true, "Please enter a valid email address");
+        if (!firstInvalid) firstInvalid = "email";
+        valid = false;
+      } else setFieldError("email", false);
+
+      /* --- Brand --- */
+      if (value("brand").length < 2) {
+        setFieldError("brand", true, "Please enter your brand name");
+        if (!firstInvalid) firstInvalid = "brand";
+        valid = false;
+      } else setFieldError("brand", false);
+
+      /* --- Quantity --- */
+      if (!value("quantity")) {
+        setFieldError("quantity", true, "Please enter quantity");
+        if (!firstInvalid) firstInvalid = "quantity";
+        valid = false;
+      } else setFieldError("quantity", false);
+
+      /* --- Product --- */
+      if (!value("product")) {
+        setFieldError("product", true, "Please select a product type");
+        if (!firstInvalid) firstInvalid = "product";
+        valid = false;
+      } else setFieldError("product", false);
+
+      /* --- Date --- */
+      if (!value("date")) {
+        setFieldError("date", true, "Please select required date");
+        if (!firstInvalid) firstInvalid = "date";
+        valid = false;
+      } else setFieldError("date", false);
+
+      /* --- Details --- */
+      if (value("details").length < 5) {
+        setFieldError("details", true, "Please describe your requirement");
+        if (!firstInvalid) firstInvalid = "details";
+        valid = false;
+      } else setFieldError("details", false);
+
+      /* --- Show error summary + scroll to first invalid --- */
+      if (!valid) {
+        if (firstInvalid) {
+          const el = document.getElementById(firstInvalid);
+          if (el) {
+            el.focus();
+            el.scrollIntoView({behavior: "smooth", block: "center"});
+          }
+        }
         if (formMessage) {
           formMessage.className = "form-message error";
-          formMessage.textContent = "Please complete " + missing[1] + " before submitting.";
+          formMessage.textContent = "Please fix the highlighted fields before submitting.";
         }
         return;
       }
 
-      if (selectedFile && selectedFile.size > 10 * 1024 * 1024) {
-        event.preventDefault();
-        if (formMessage) {
-          formMessage.className = "form-message error";
-          formMessage.textContent = "Please keep the reference/logo file below 10 MB.";
-        }
-        return;
-      }
-
-      if (submitting) {
-        event.preventDefault();
-        return;
-      }
-
-      /* Prefill hidden fields so the email looks professional */
-      const email = value("email");
-      const subject = form.querySelector('input[name="_subject"]');
-      const replyTo = form.querySelector('input[name="_replyto"]');
-      const urlField = form.querySelector('input[name="_url"]');
-      if (subject) subject.value = "New KP House Requirement — " + value("name");
-      if (replyTo) replyTo.value = email || "";
-      if (urlField) urlField.value = window.location.href;
-
+      if (submitting) return;
       submitting = true;
-      submissionStarted = true;
 
-      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.textContent : "Send Requirement";
       if (submitBtn) {
-        submitBtn.setAttribute("disabled", "disabled");
+        submitBtn.disabled = true;
         submitBtn.textContent = "Sending...";
       }
-
       if (formMessage) {
         formMessage.className = "form-message";
         formMessage.textContent = "Sending your requirement securely...";
       }
-    });
 
-    /* When the FormSubmit iframe finishes loading, show success */
-    if (submitFrame) {
-      submitFrame.addEventListener("load", () => {
-        if (!submissionStarted) return;
-        submitting = false;
-        submissionStarted = false;
+      /* Build FormData */
+      const formData = new FormData(form);
+      formData.set("subject", "New KP House Requirement — " + value("name"));
+      if (emailVal) formData.set("replyto", emailVal);
 
-        const submitBtn = form.querySelector('button[type="submit"]');
-        if (submitBtn) {
-          submitBtn.removeAttribute("disabled");
-          submitBtn.textContent = "Send Requirement";
-        }
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
 
-        if (formArea && success) {
+        const data = await response.json();
+
+        if (data.success) {
           form.reset();
-          formArea.style.display = "none";
-          success.classList.add("show");
-          window.scrollTo({top: formArea.offsetTop - 110, behavior: "smooth"});
+          if (formArea) formArea.style.display = "none";
+          if (success) {
+            success.classList.add("show");
+            window.scrollTo({top: (success.offsetTop || 0) - 110, behavior: "smooth"});
+          }
+        } else {
+          if (formMessage) {
+            formMessage.className = "form-message error";
+            formMessage.textContent = data.message || "Submission failed. Please try again.";
+          }
         }
-      });
-    }
+      } catch (error) {
+        console.error("Form error:", error);
+        if (formMessage) {
+          formMessage.className = "form-message error";
+          formMessage.textContent = "Something went wrong. Please try again or contact us on WhatsApp.";
+        }
+      } finally {
+        submitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText || "Send Requirement";
+        }
+      }
+    });
   }
 
-  /* "Send Another Requirement" resets the form */
+  /* ===== Send Another ===== */
   if (sendAnother && formArea && success && form) {
     sendAnother.addEventListener("click", () => {
       form.reset();
+      /* Clear all errors */
+      document.querySelectorAll(".field-error.show").forEach(el => el.classList.remove("show"));
+      document.querySelectorAll(".invalid").forEach(el => el.classList.remove("invalid"));
       success.classList.remove("show");
       formArea.style.display = "block";
       if (formMessage) {
         formMessage.className = "form-message";
         formMessage.textContent = "";
       }
-      window.scrollTo({top: formArea.offsetTop - 110, behavior: "smooth"});
+      window.scrollTo({top: (formArea.offsetTop || 0) - 110, behavior: "smooth"});
     });
   }
+
 })();
