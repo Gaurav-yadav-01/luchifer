@@ -1,4 +1,4 @@
-KP House IMAGE MAP — UNIQUE IMAGE PER PLACEMENT
+KP HOUSE IMAGE MAP — UNIQUE IMAGE PER PLACEMENT
 
 Rule: each visual source is used only once across the full website. The home hero keeps the supplied KP House workwear image. Product pages use three distinct visual angles/styles: hero, detail, and look.
 
@@ -51,10 +51,10 @@ INDUSTRIES_DELIVERY: https://images.pexels.com/photos/29260429/pexels-photo-2926
 
 
 HOME HERO UPDATE
-- assets/home-hero-desktop.png: new photorealistic wide Luchifer hero created for the website, composed to leave clean negative space for HTML text and avoid the anatomy/cropping issues in the previous hero.
+- assets/home-hero-desktop.png: new photorealistic wide KP House hero created for the website, composed to leave clean negative space for HTML text and avoid the anatomy/cropping issues in the previous hero.
 - assets/home-hero-mobile.png: dedicated vertical crop for phone screens so the hero remains readable and visually balanced instead of forcing the desktop image into a narrow viewport.
 
 
 FORM / EMAIL
-Form backend: https://formsubmit.co/ (AJAX endpoint; requirement emails to the Luchifer contact inbox).
+Form backend: https://formsubmit.co/ (AJAX endpoint; requirement emails to the KP House contact inbox).
 Reference/logo files are attached to the submission when provided.
