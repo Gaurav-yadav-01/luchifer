@@ -1,6 +1,6 @@
-Luchifer Website — Research Upgrade Notes
+KP House Website — Research Upgrade Notes
 
-This version keeps the existing Luchifer visual direction and adds the
+This version keeps the existing KP House visual direction and adds the
 information architecture observed across the reference websites supplied
 by the owner.
 
@@ -22,8 +22,8 @@ Research themes incorporated:
   sample-before-bulk concept, reorder considerations, and
   delivery/production steps.
 
-Luchifer-specific implementation:
-- Home page visual design remains the existing Luchifer design.
+KP House-specific implementation:
+- Home page visual design remains the existing KP House design.
 - Existing product categories and unique-image rule are preserved;
   no image source was intentionally duplicated.
 - Product pages contain B2B detail: product scope, fabric/fit, branding,
@@ -72,18 +72,18 @@ Recent structural updates:
   updated to reflect this change (Chef → School).
 
 Important:
-- Reference-site wording was not copied verbatim. The Luchifer copy is
-  written specifically for Luchifer.
+- Reference-site wording was not copied verbatim. The KP House copy is
+  written specifically for KP House.
 - Where the reference sites state their own prices, MOQs, certifications,
   production capacities, or policies, those figures were not transferred
-  to Luchifer unless already part of Luchifer's own site information.
+  to KP House unless already part of KP House's own site information.
 
 
-Luchifer contact details (used consistently across all pages):
+KP House contact details (used consistently across all pages):
 - WhatsApp: +91 77048 10716
 - Email:    Krishnayadavindia01@gmail.com
 - WhatsApp pre-filled message (footer):
-    "Hello Luchifer, I want to discuss my uniform requirement.
+    "Hello KP House, I want to discuss my uniform requirement.
      Please share details."
 - Email subject (footer): "Uniform Requirement Enquiry"
 - Form submission endpoint: FormSubmit.co (AJAX to
@@ -91,7 +91,7 @@ Luchifer contact details (used consistently across all pages):
 
 
 Design & theme notes:
-- Unified dark Luchifer palette across all pages:
+- Unified dark KP House palette across all pages:
     --black:  #090909   (page background)
     --panel:  #151513   (cards, panels, form inputs)
     --cream:  #f3efe6   (primary text)
