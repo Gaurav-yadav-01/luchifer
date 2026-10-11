@@ -72,7 +72,7 @@ Latest visual correction:
 
 
 EMAIL REQUIREMENT FORM
-- Requirement submissions are sent to Krishnayadavindia01@gmail.com
+- Requirement submissions are sent to kp.house9565@gmail.com
   using FormSubmit's AJAX endpoint.
 - The optional Reference / Logo file is attached to the email when selected
   (FormSubmit supports multipart uploads up to 10 MB total).
@@ -93,13 +93,13 @@ The form posts directly to FormSubmit using multipart/form-data so file
 attachments are included. The website no longer displays a success message
 on a timer; it waits for the form target iframe to load after the POST.
 
-FormSubmit must be activated for Krishnayadavindia01@gmail.com before
+FormSubmit must be activated for kp.house9565@gmail.com before
 submissions can be delivered to that inbox.
 
 
 CONTACT DETAILS (used across site)
-- WhatsApp: +91 77048 10716
-- Email:    Krishnayadavindia01@gmail.com
+- WhatsApp: +91 92145 78049
+- Email:    kp.house9565@gmail.com
 - WhatsApp pre-filled message: "Hello KP House, I want to discuss my
   uniform requirement. Please share details."
 - Email subject: "Uniform Requirement Enquiry"
