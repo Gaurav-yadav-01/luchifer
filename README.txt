@@ -1,4 +1,4 @@
-LUCHIFER — COMPLETE IMAGE-FOCUSED WEBSITE
+KP House — COMPLETE IMAGE-FOCUSED WEBSITE
 
 Open:
   index.html
@@ -65,7 +65,7 @@ IMAGE UPDATE
 
 Latest visual correction:
 - The home hero uses a clean wide hero asset plus a dedicated mobile version.
-- All pages use the same dark Luchifer palette
+- All pages use the same dark KP House palette
   (black #090909, cream #f3efe6, muted gold #c6a66d) with no bright white
   content blocks.
 - Process steps and info cards are dark-themed across all category pages.
@@ -100,6 +100,6 @@ submissions can be delivered to that inbox.
 CONTACT DETAILS (used across site)
 - WhatsApp: +91 77048 10716
 - Email:    Krishnayadavindia01@gmail.com
-- WhatsApp pre-filled message: "Hello Luchifer, I want to discuss my
+- WhatsApp pre-filled message: "Hello KP House, I want to discuss my
   uniform requirement. Please share details."
 - Email subject: "Uniform Requirement Enquiry"
