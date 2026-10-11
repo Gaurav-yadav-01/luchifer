@@ -1,6 +1,6 @@
-LUCHIFER IMAGE MAP — UNIQUE IMAGE PER PLACEMENT
+KP House IMAGE MAP — UNIQUE IMAGE PER PLACEMENT
 
-Rule: each visual source is used only once across the full website. The home hero keeps the supplied Luchifer workwear image. Product pages use three distinct visual angles/styles: hero, detail, and look.
+Rule: each visual source is used only once across the full website. The home hero keeps the supplied KP House workwear image. Product pages use three distinct visual angles/styles: hero, detail, and look.
 
 Free stock sources are from Pexels/Unsplash pages selected for category relevance. URLs below are direct image endpoints used by the site.
 
